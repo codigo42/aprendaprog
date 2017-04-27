@@ -54,8 +54,8 @@
 <p>..todo:: Jupyter é a terceira maneira; talvez Jupyter na nuvem.</p>
 <p>Se você usa Windows, escolha o IDLE para começar a acompanhar esse tutorial. O IDLE também está disponível para a plataforma Linux (algumas distribuições colocam o IDLE em um pacote separado do pacote do Python).</p>
 <p>Seja qual for o interpretador que você escolheu, ao executá-lo você verá uma mensagem com informações de <em>copyright</em> mais ou menos como essa:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">1</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Dec</span> <span class="mi">15</span> <span class="mi">2015</span><span class="p">,</span> <span class="mi">21</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">44</span><span class="p">)</span>
-<span class="p">[</span><span class="n">GCC</span> <span class="mf">4.8</span><span class="o">.</span><span class="mi">2</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Nov</span> <span class="mi">17</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span><span class="p">)</span>
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">5.4</span><span class="o">.</span><span class="mi">0</span> <span class="mi">20160609</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
 <span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
 <span class="o">&gt;&gt;&gt;</span>
 </pre></div>
@@ -79,50 +79,25 @@
 <li><code class="docutils literal"><span class="pre">/</span></code> divisão</li>
 </ul>
 </div></blockquote>
-<p>Em Python, assim como na linguagem C, os números inteiros têm um tratamento especial. Isso fica evidente quando fazemos uma divisão:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span><span class="o">/</span><span class="mi">2</span>
-<span class="go">3</span>
-<span class="go">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
-<p>Em vez de 3,5, o resultado foi 3. Isso acontece sempre que todos os números de uma expressão são inteiros. Neste caso, Python imagina que se deseja um resultado inteiro também (esse comportamento estranho às vezes é conveniente em programação).</p>
 <p>Se você quiser operar com números decimais, deve usar o ponto e não a vírgula como separador decimal:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">7.0</span><span class="o">/</span><span class="mi">2</span>
-<span class="go">3.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span><span class="o">/</span><span class="mf">2.0</span>
-<span class="go">3.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span><span class="o">/</span><span class="mf">2.</span>
-<span class="go">3.5</span>
-<span class="go">&gt;&gt;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">4.2</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="go">42.0</span>
 </pre></div>
 </div>
-<p>Note que basta digitar um ponto após o número. O computador não consegue lidar com números do conjunto dos reais, mas apenas com uma aproximação chamada &#8220;número de ponto-flutuante&#8221; (porque o ponto decimal pode aperecer em qualquer posição do número). Ao lidar com ponto-flutuante, às vezes vemos resultados estranhos:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.4</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="go">4.7999999999999998</span>
-<span class="go">&gt;&gt;&gt;</span>
+<p>Note que basta digitar um ponto após o número. O computador não consegue lidar com números do conjunto dos reais, mas apenas com uma aproximação chamada &#8220;número de ponto-flutuante&#8221; (porque o ponto decimal &#8220;flutua&#8221; e pode aperecer em qualquer posição do número). Ao lidar com ponto-flutuante, às vezes vemos resultados estranhos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.1</span> <span class="o">+</span> <span class="mf">1.1</span> <span class="o">+</span> <span class="mf">1.1</span>
+<span class="go">3.3000000000000003</span>
 </pre></div>
 </div>
-<p>O resultado não deveria ser 4.8? Deveria, mas antes de ficar revoltado note que a diferença foi muito pequena. Acontece que o sistema de &#8220;ponto-flutuante&#8221; padrão IEEE-754 usado em quase todos os computadores atuais tem uma precisão limitada, e Python não esconde este fato de você, programador. O problema não está na conta, mas na própria representação interna do valor <code class="docutils literal"><span class="pre">2.4</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">2.4</span>
-<span class="go">2.3999999999999999</span>
-</pre></div>
-</div>
-<p>Para exibir valores de ponto-flutuante para um usuário sem assustá-lo, use o comando <code class="docutils literal"><span class="pre">print</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="mf">2.4</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="go">4.8</span>
-<span class="go">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
+<p>O resultado não deveria ser 3.3? Deveria, mas antes de ficar revoltado note que a diferença foi muito pequena. Acontece que o sistema de &#8220;ponto-flutuante&#8221; padrão IEEE-754 usado em quase todos os computadores atuais tem uma precisão limitada, e Python não esconde este fato de você.</p>
 <p>Você pode digitar espaços entre os números e operadores para fazer uma expressão longa ficar mais legível. Veja esse exemplo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="go">7</span>
-<span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Note que o interpretador Python é mais esperto que uma calculadora comum. Ele sabe que a multiplicação deve ser efetuada antes da adição. Se você teclar a mesma expressão em uma calculadora qualquer obterá o resultado 9, que é incorreto. Em Python, se você realmente deseja efetuar a soma antes da multiplicação, precisa usar parênteses:</p>
+<p>O interpretador Python sabe que a multiplicação deve ser efetuada antes da adição. Se você teclar a mesma expressão em uma calculadora qualquer obterá o resultado 9, que é incorreto. Em Python, se você realmente deseja efetuar a soma antes da multiplicação, precisa usar parênteses:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
 <span class="go">9</span>
-<span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>Ao contrário do que você aprendeu na escola, aqui os símbolos [] e {} não servem para agrupar expressões dentro de outras expressões. Apenas parênteses são usados:</p>
@@ -166,7 +141,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </div>
 <div class="section" id="conversor-de-dolares">
 <h2>Conversor de dólares<a class="headerlink" href="#conversor-de-dolares" title="Link permanente para este título">¶</a></h2>
-<p>Digamos que você tem uma loja de discos importados, e precisa constantemente converter dólares em reais. O valor do dólar para venda em 20/05/1999 é de 1.686. Para converter US$9,95 e US$11,95 em reais você pode digitar:</p>
+<p>Digamos que você tem uma loja de trecos importados, e precisa constantemente converter dólares em reais. O valor do dólar para venda em 20/05/1999 é de 1.686. Para converter US$9,95 e US$11,95 em reais você pode digitar:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">9.95</span> <span class="o">*</span> <span class="mf">1.686</span>
 <span class="go">16.775699999999997</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mf">11.95</span> <span class="o">*</span> <span class="mf">1.686</span>
@@ -189,15 +164,15 @@ Agora vamos provocar um outro tipo de erro:</p>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>No último caso, convertemos de uma vez só os valores 5, 7 e 9 em dólares. Para um resultado mais apresentável, use o comando <code class="docutils literal"><span class="pre">print</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span>
+<p>No último caso, convertemos de uma vez só os valores 5, 7 e 9 em dólares. Para um resultado mais apresentável, use a função <code class="docutils literal"><span class="pre">print</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 <span class="go">8.43 11.802 15.174</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>E se a cotação do dólar mudou para 1.61? Basta armazenar o novo número e refazer os cálculos:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.61</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 <span class="go">8.05 11.27 14.49</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
@@ -206,8 +181,8 @@ Agora vamos provocar um outro tipo de erro:</p>
 </div>
 <div class="section" id="tabela-de-precos-em-dolares-e-reais">
 <h2>Tabela de preços em dólares e reais<a class="headerlink" href="#tabela-de-precos-em-dolares-e-reais" title="Link permanente para este título">¶</a></h2>
-<p>Agora vamos mostrar como o interpretador Python é muito mais poderoso que uma calculadora. Imagine que em sua loja de discos importados você tem um balcão de ofertas com discos de $4 até $9. Se quisesse fazer uma tabela de preços em reais você poderia digitar:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="mi">4</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">9</span><span class="o">*</span><span class="n">d</span>
+<p>Agora vamos mostrar como o interpretador Python é muito mais poderoso que uma calculadora. Imagine que em sua loja de trecos importados você tem um balcão de ofertas com trecos de $4 até $9. Se quisesse fazer uma tabela de preços em reais você poderia digitar:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">9</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="go">6.44 8.05 9.66 11.27 14.49</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
@@ -218,7 +193,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </pre></div>
 </div>
 <p>Aqui nós criamos uma lista de preços na memória do computador e associamos o nome &#8220;lista&#8221; a esses dados. Em seguida, digite o seguinte (você terá que teclar <code class="docutils literal"><span class="pre">[ENTER]</span></code> duas vezes ao final dessa linha; depois saberá porque).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span> <span class="nb">print</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 
 <span class="go">8.05</span>
 <span class="go">9.66</span>
@@ -240,7 +215,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </dl>
 </li>
 </ul>
-<p>Agora digamos que você tem discos com valores de 4 a 15 dólares. Você poderia digitar a lista de novo, mas a coisa começa a ficar repetitiva novamente. Há uma forma melhor. A linguagem Python possui uma palavra chamada <code class="docutils literal"><span class="pre">range</span></code> que serve para gerar faixas de números. Vamos usar essa palavra. Digite:</p>
+<p>Agora digamos que você tem trecos com valores de 4 a 15 dólares. Você poderia digitar a lista de novo, mas a coisa começa a ficar repetitiva novamente. Há uma forma melhor. A linguagem Python possui uma palavra chamada <code class="docutils literal"><span class="pre">range</span></code> que serve para gerar faixas de números. Vamos usar essa palavra. Digite:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span>
 <span class="go">&lt;class &#39;range&#39;&gt;</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -266,14 +241,14 @@ Agora vamos provocar um outro tipo de erro:</p>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Agora para obter a lista de valores de discos podemos digitar:</p>
+<p>Agora para obter a lista de valores de trecos podemos digitar:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
 <span class="go">[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>E usando o comando for, calcular de uma só vez todos os valores convertidos:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span>
+<p>E usando o comando <code class="docutils literal"><span class="pre">for</span></code>, calcular de uma só vez todos os valores convertidos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">6.44</span>
 <span class="go">8.05</span>
@@ -291,7 +266,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </pre></div>
 </div>
 <p>Mas o ideal mesmo era ter os valores em dólares e reais lado a lado. Isso é fácil:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">4 6.44</span>
 <span class="go">5 8.05</span>
@@ -310,7 +285,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </div>
 <p>Resumindo o que foi feito até aqui, com apenas duas linhas de código em Python, você pode gerar tabelas de conversão de qualquer tamanho. Experimente:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.686</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Parabéns, você acaba de construir seu primeiro programa!</p>

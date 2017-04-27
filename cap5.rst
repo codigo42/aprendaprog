@@ -13,6 +13,7 @@ Dividir para conquistar
 Um programa modularizado facilita o planejamento, a distribuição de tarefas entre vários programadores, o controle de qualidade e a reutilização de soluções. Por exemplo, no capítulo anterior utilizamos várias vezes sequências de comandos para ler dados do usuário, parecidas com o fragmento do programa ``desprep1.py`` (mostrado na listagem abaixo).
 
 ::
+
   while True:
       resp = raw_input('Quanto gastou %s? ' % pessoa)
       try:

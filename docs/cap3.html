@@ -52,8 +52,8 @@
 <h2>Rodando programas no IDLE<a class="headerlink" href="#rodando-programas-no-idle" title="Link permanente para este título">¶</a></h2>
 <p>A versão Windows do Python traz o IDLE, um interpretador interativo em modo gráfico que já apresentamos no primeiro capítulo. Se você não usa essa versão do Python, vá direto para a próxima seção: Testando no sistema. O IDLE inclui um editor de programas simplório, mas útil para quem está aprendendo a linguagem. O editor do IDLE exibe com cores diferentes as palavras da linguagem, de acordo com sua função sintática (lembra da aula de português onde o verbo era verde, o sujeito vermelho etc?). Para abrir o editor, rode o IDLE e acione o comando <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">window</span></code>. A janela que se abrirá, com o título <code class="docutils literal"><span class="pre">untitled</span></code>, é um editor. Experimente digitar um programinha como esse:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s1">&#39;Fulano &#39;</span><span class="p">,</span>
-<span class="k">print</span> <span class="s1">&#39;e seus Sicranos&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Fulano &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;e seus Sicranos&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note que o editor pinta algumas palavras de laranja. São as chamadas palavras-chave, peças tão importantes em Python como os verbos em português. Outras cores indicaom funções e variáveis. E os textos entre aspas aparecem em verde: dessa forma, fica difícil esquecer de fechar aspas. Outra coisa que acontece magicamente é a endentação. O editor &#8220;sabe&#8221; que após os &#8221;:&#8221; do comando for, deve vir um bloco endentado. Para encerrar o bloco endentado, você pode teclar <code class="docutils literal"><span class="pre">[ENTER]</span></code> duas vezes para pular uma linha, como ocorre também na deixa do interpretador, ou então teclar <code class="docutils literal"><span class="pre">[BackSpace]</span></code> para apagar de uma vez só os quatro espaços à esquerda da linha.</p>
@@ -123,8 +123,8 @@ $ /usr/bin/python egtrip.py
 <p>Bom, deu trabalho mas chegamos. E como você deve ter notado, a execução do programinha foi bem mais veloz que no IDLE (em meu computador, menos de 1 segundo, em vez de 10).</p>
 <p>Agora vamos fazer uma pequena mudança no programa egotrip que terá um grande efeito. Para fazer essa alteração, no Windows o modo mais rápido é segurar a tecla <code class="docutils literal"><span class="pre">[ALT]</span></code> e pressionar <code class="docutils literal"><span class="pre">[TAB]</span></code> até que o ícone do editor do IDLE identificado pelo nome do arquivo <code class="docutils literal"><span class="pre">egotrip.py</span></code> esteja selecionado. Então solte a tecla <code class="docutils literal"><span class="pre">[ALT]</span></code>, que o editor aparecerá sobrepondo-se às demais janelas. Agora vamos modificar o programa egotrip. Ao final da segunda linha, digite uma vírgula. O seu programa deverá ficar assim:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s1">&#39;Luciano &#39;</span><span class="p">,</span>
-<span class="k">print</span> <span class="s1">&#39;e seus Camargos&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Luciano &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;e seus Camargos&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Salve com <code class="docutils literal"><span class="pre">[CTRL]+[S]</span></code> e rode o programa novamente. Tecle <code class="docutils literal"><span class="pre">[F5]</span></code> para rodar no IDLE, ou siga esses passos para testar no DOS:</p>
@@ -312,18 +312,18 @@ Ana deve pagar: R$ 5.0
 <p>Não é obrigatória a presença de um bloco <code class="docutils literal"><span class="pre">else</span></code> após um <code class="docutils literal"><span class="pre">if</span></code>. Mas um <code class="docutils literal"><span class="pre">else</span></code> só pode existir após um <code class="docutils literal"><span class="pre">if</span></code>. E um <code class="docutils literal"><span class="pre">if</span></code> pode conter, no máximo, um <code class="docutils literal"><span class="pre">else</span></code>. Existe um terceiro comando de bloco relacionado a esses, chamado <code class="docutils literal"><span class="pre">elif</span></code>. Ele corresponde à combinação <code class="docutils literal"><span class="pre">else-if</span></code> existente em outras linguagens. Assim como o <code class="docutils literal"><span class="pre">if</span></code>, cada <code class="docutils literal"><span class="pre">elif</span></code> deve ser acompanhado de uma condição que determinará a execução do bloco subordinado. Como todo comando de bloco, a primeira linha do <code class="docutils literal"><span class="pre">elif</span></code> deve ser terminada por um sinal de <code class="docutils literal"><span class="pre">:</span></code>.</p>
 <p>Um <code class="docutils literal"><span class="pre">if</span></code> pode ser seguido de qualquer quantidade de blocos <code class="docutils literal"><span class="pre">elif</span></code>, e se houver um bloco <code class="docutils literal"><span class="pre">else</span></code> ele deverá vir depois de todos os <code class="docutils literal"><span class="pre">elif</span></code>. Veja esse fragmento de código, parte de um jogo simples que criaremos no próximo capítulo:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">vf</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;Alunissagem perfeita!&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Alunissagem perfeita!&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;Alunissagem dentro do padrao.&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Alunissagem dentro do padrao.&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;Alunissagem com avarias leves.&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Alunissagem com avarias leves.&#39;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;Alunissagem com avarias severas.&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Alunissagem com avarias severas.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s1">&#39;Modulo lunar destruido no impacto.&#39;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Modulo lunar destruido no impacto.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Numa sequencia de <code class="docutils literal"><span class="pre">if/elif/elif/.../else</span></code> é garantido que um, e apenas um dos blocos será executado. Fica como desafio para o leitor descobrir como usar o comando elif para corrigir o bug dos gastos iguais, que aparece no programa <code class="docutils literal"><span class="pre">despdom2.py</span></code>.</p>
+<p>Numa sequência de <code class="docutils literal"><span class="pre">if/elif/elif/.../else</span></code> é garantido que um, e apenas um dos blocos será executado. Fica como desafio para o leitor descobrir como usar o comando elif para corrigir o bug dos gastos iguais, que aparece no programa <code class="docutils literal"><span class="pre">despdom2.py</span></code>.</p>
 </div>
 </div>
 

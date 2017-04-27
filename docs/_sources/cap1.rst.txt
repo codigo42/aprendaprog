@@ -14,8 +14,8 @@ Se você usa Windows, escolha o IDLE para começar a acompanhar esse tutorial. O
 
 Seja qual for o interpretador que você escolheu, ao executá-lo você verá uma mensagem com informações de *copyright* mais ou menos como essa::
 
-  Python 3.5.1 (default, Dec 15 2015, 21:12:44)
-  [GCC 4.8.2] on linux
+  Python 3.5.2 (default, Nov 17 2016, 17:05:23)
+  [GCC 5.4.0 20160609] on linux
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
@@ -39,56 +39,27 @@ A resposta é reconfortante: para Python, ``2+2`` é igual a 4. Você pode exper
    * ``*`` multiplicação
    * ``/`` divisão
 
-Em Python, assim como na linguagem C, os números inteiros têm um tratamento especial. Isso fica evidente quando fazemos uma divisão::
-
-    >>> 7/2
-    3
-    >>>
-
-
-Em vez de 3,5, o resultado foi 3. Isso acontece sempre que todos os números de uma expressão são inteiros. Neste caso, Python imagina que se deseja um resultado inteiro também (esse comportamento estranho às vezes é conveniente em programação).
-
 Se você quiser operar com números decimais, deve usar o ponto e não a vírgula como separador decimal::
 
-    >>> 7.0/2
-    3.5
-    >>> 7/2.0
-    3.5
-    >>> 7/2.
-    3.5
-    >>>
+    >>> 4.2 * 10
+    42.0
 
+Note que basta digitar um ponto após o número. O computador não consegue lidar com números do conjunto dos reais, mas apenas com uma aproximação chamada "número de ponto-flutuante" (porque o ponto decimal "flutua" e pode aperecer em qualquer posição do número). Ao lidar com ponto-flutuante, às vezes vemos resultados estranhos::
 
-Note que basta digitar um ponto após o número. O computador não consegue lidar com números do conjunto dos reais, mas apenas com uma aproximação chamada "número de ponto-flutuante" (porque o ponto decimal pode aperecer em qualquer posição do número). Ao lidar com ponto-flutuante, às vezes vemos resultados estranhos::
+  >>> 1.1 + 1.1 + 1.1
+  3.3000000000000003
 
-    >>> 2.4 * 2
-    4.7999999999999998
-    >>>
-
-O resultado não deveria ser 4.8? Deveria, mas antes de ficar revoltado note que a diferença foi muito pequena. Acontece que o sistema de "ponto-flutuante" padrão IEEE-754 usado em quase todos os computadores atuais tem uma precisão limitada, e Python não esconde este fato de você, programador. O problema não está na conta, mas na própria representação interna do valor ``2.4``::
-
-    >>> 2.4
-    2.3999999999999999
-
-
-Para exibir valores de ponto-flutuante para um usuário sem assustá-lo, use o comando ``print``::
-
-    >>> print 2.4 * 2
-    4.8
-    >>>
-
+O resultado não deveria ser 3.3? Deveria, mas antes de ficar revoltado note que a diferença foi muito pequena. Acontece que o sistema de "ponto-flutuante" padrão IEEE-754 usado em quase todos os computadores atuais tem uma precisão limitada, e Python não esconde este fato de você.
 
 Você pode digitar espaços entre os números e operadores para fazer uma expressão longa ficar mais legível. Veja esse exemplo::
 
     >>> 1 + 2 * 3
     7
-    >>>
 
-Note que o interpretador Python é mais esperto que uma calculadora comum. Ele sabe que a multiplicação deve ser efetuada antes da adição. Se você teclar a mesma expressão em uma calculadora qualquer obterá o resultado 9, que é incorreto. Em Python, se você realmente deseja efetuar a soma antes da multiplicação, precisa usar parênteses::
+O interpretador Python sabe que a multiplicação deve ser efetuada antes da adição. Se você teclar a mesma expressão em uma calculadora qualquer obterá o resultado 9, que é incorreto. Em Python, se você realmente deseja efetuar a soma antes da multiplicação, precisa usar parênteses::
 
     >>> (1 + 2) * 3
     9
-    >>>
 
 Ao contrário do que você aprendeu na escola, aqui os símbolos [] e {} não servem para agrupar expressões dentro de outras expressões. Apenas parênteses são usados::
 
@@ -133,7 +104,7 @@ Ao contrário do que você aprendeu na escola, aqui os símbolos [] e {} não se
 Conversor de dólares
 =====================
 
-Digamos que você tem uma loja de discos importados, e precisa constantemente converter dólares em reais. O valor do dólar para venda em 20/05/1999 é de 1.686. Para converter US$9,95 e US$11,95 em reais você pode digitar::
+Digamos que você tem uma loja de trecos importados, e precisa constantemente converter dólares em reais. O valor do dólar para venda em 20/05/1999 é de 1.686. Para converter US$9,95 e US$11,95 em reais você pode digitar::
 
     >>> 9.95 * 1.686
     16.775699999999997
@@ -156,16 +127,16 @@ Note que o interpretador não respondeu nada (a menos que você tenha cometido u
     (8.4299999999999997, 11.802, 15.173999999999999)
     >>>
 
-No último caso, convertemos de uma vez só os valores 5, 7 e 9 em dólares. Para um resultado mais apresentável, use o comando ``print``::
+No último caso, convertemos de uma vez só os valores 5, 7 e 9 em dólares. Para um resultado mais apresentável, use a função ``print``::
 
-    >>> print 5 * d, 7 * d, 9 * d
+    >>> print(5 * d, 7 * d, 9 * d)
     8.43 11.802 15.174
     >>>
 
 E se a cotação do dólar mudou para 1.61? Basta armazenar o novo número e refazer os cálculos::
 
     >>> d = 1.61
-    >>> print 5 * d, 7 * d, 9 * d
+    >>> print(5 * d, 7 * d, 9 * d)
     8.05 11.27 14.49
     >>>
 
@@ -174,9 +145,9 @@ Você precisa digitar a linha mais longa de novo. No IDLE, clique sobre a linha 
 Tabela de preços em dólares e reais
 ====================================
 
-Agora vamos mostrar como o interpretador Python é muito mais poderoso que uma calculadora. Imagine que em sua loja de discos importados você tem um balcão de ofertas com discos de $4 até $9. Se quisesse fazer uma tabela de preços em reais você poderia digitar::
+Agora vamos mostrar como o interpretador Python é muito mais poderoso que uma calculadora. Imagine que em sua loja de trecos importados você tem um balcão de ofertas com trecos de $4 até $9. Se quisesse fazer uma tabela de preços em reais você poderia digitar::
 
-    >>> print 4*d, 5*d, 6*d, 7*d, 9*d
+    >>> print(4*d, 5*d, 6*d, 7*d, 9*d)
     6.44 8.05 9.66 11.27 14.49
     >>>
 
@@ -190,7 +161,7 @@ Aqui nós criamos uma lista de preços na memória do computador e associamos o 
 
 ::
 
-    >>> for p in lista: print p * d
+    >>> for p in lista: print(p * d)
 
     8.05
     9.66
@@ -206,7 +177,7 @@ Aqui instruímos o interpretador a fazer os seguintes passos:
     - associe o nome ``p`` ao item da vez
     - exiba o valor de ``p * d``
 
-Agora digamos que você tem discos com valores de 4 a 15 dólares. Você poderia digitar a lista de novo, mas a coisa começa a ficar repetitiva novamente. Há uma forma melhor. A linguagem Python possui uma palavra chamada ``range`` que serve para gerar faixas de números. Vamos usar essa palavra. Digite::
+Agora digamos que você tem trecos com valores de 4 a 15 dólares. Você poderia digitar a lista de novo, mas a coisa começa a ficar repetitiva novamente. Há uma forma melhor. A linguagem Python possui uma palavra chamada ``range`` que serve para gerar faixas de números. Vamos usar essa palavra. Digite::
 
     >>> range
     <class 'range'>
@@ -234,15 +205,15 @@ Agora digamos que eu queira uma sequência a partir de 2, e não zero. Digite::
     [2, 3, 4]
     >>>
 
-Agora para obter a lista de valores de discos podemos digitar::
+Agora para obter a lista de valores de trecos podemos digitar::
 
     >>> range(4,16)
     [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     >>>
 
-E usando o comando for, calcular de uma só vez todos os valores convertidos::
+E usando o comando ``for``, calcular de uma só vez todos os valores convertidos::
 
-    >>> for p in range(4,16): print p * d
+    >>> for p in range(4,16): print(p * d)
     ...
     6.44
     8.05
@@ -261,7 +232,7 @@ E usando o comando for, calcular de uma só vez todos os valores convertidos::
 
 Mas o ideal mesmo era ter os valores em dólares e reais lado a lado. Isso é fácil::
 
-    >>> for p in range(4,16): print p, p * d
+    >>> for p in range(4,16): print(p, p * d)
     ...
     4 6.44
     5 8.05
@@ -277,11 +248,10 @@ Mas o ideal mesmo era ter os valores em dólares e reais lado a lado. Isso é f�
     15 24.15
     >>>
 
-
 Resumindo o que foi feito até aqui, com apenas duas linhas de código em Python, você pode gerar tabelas de conversão de qualquer tamanho. Experimente::
 
     >>> d = 1.686
-    >>> for p in range(50,150): print p, p * d
+    >>> for p in range(50,150): print(p, p * d)
 
 
 Parabéns, você acaba de construir seu primeiro programa!

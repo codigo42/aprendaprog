@@ -48,7 +48,7 @@
 <h1>Capítulo 2: Criando uma tabela<a class="headerlink" href="#capitulo-2-criando-uma-tabela" title="Link permanente para este título">¶</a></h1>
 <p>No final do capítulo anterior digitamos o seguinte programa diretamente no interpretador Python:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.686</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>O resultado desta seqüência de comandos é uma longa lista de números em duas colunas. Sabemos que a primeira coluna da esquerda contém preços em dólar e a outra, em reais. Mas nada na listagem indica isto. Observe esse trecho:</p>
@@ -159,22 +159,22 @@
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Python representa varíaveis &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; dessa forma: entre aspas simples, e trocando os acentos por códigos especiais (estamos falando do código ASCII em notação octal, algo que explicaremos depois). Se você quiser exibir o conteúdo de <code class="docutils literal"><span class="pre">msg</span></code> de forma mais apresentável, use o comando <code class="docutils literal"><span class="pre">print</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">msg</span>
+<p>Python representa varíaveis &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; dessa forma: entre aspas simples, e trocando os acentos por códigos especiais (estamos falando do código ASCII em notação octal, algo que explicaremos depois). Se você quiser exibir o conteúdo de <code class="docutils literal"><span class="pre">msg</span></code> de forma mais apresentável, use a função <code class="docutils literal"><span class="pre">print</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 <span class="go">um dólar vale %f real.</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>OK, é hora de explicar porque colocamos esse estranho <code class="docutils literal"><span class="pre">%f</span></code> dentro da mensagem. Trata-se de um marcador de posição para sinalizar onde Python deverá inserir um número quando quisermos imprimir a mensagem com o valor da cotação. Experimente digitar o seguinte:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.902</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">msg</span> <span class="o">%</span> <span class="n">d</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="n">d</span><span class="p">)</span>
 <span class="go">um dólar vale 1.902000 real.</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>Veja o que aconteceu: Python substituiu a marca <code class="docutils literal"><span class="pre">%f</span></code> pelo valor da variável <code class="docutils literal"><span class="pre">d</span></code>. É assim que funciona: a partir de uma &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; com marcas de posição e um ou mais valores, o operador <code class="docutils literal"><span class="pre">%</span></code> produz uma nova &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; com os valores inseridos nas respectivas posições. Veja agora um exemplo com dois valores:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg2</span> <span class="o">=</span> <span class="s1">&#39;Um dólar vale </span><span class="si">%f</span><span class="s1"> real e um real vale </span><span class="si">%f</span><span class="s1"> dólar.&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">msg2</span> <span class="o">%</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg2</span> <span class="o">%</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">d</span><span class="p">))</span>
 <span class="go">Um dólar vale 1.902000 real e um real vale 0.525762 dólar.</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
@@ -188,7 +188,7 @@
 </pre></div>
 </div>
 <p>Após o marcador <code class="docutils literal"><span class="pre">%</span></code>, a indicação <code class="docutils literal"><span class="pre">.2</span></code> determina que devem aparecer duas casas decimais após o ponto. Note que o resultado é arredondado: <code class="docutils literal"><span class="pre">1.685</span></code> virou <code class="docutils literal"><span class="pre">1.69</span></code>. Vamos usar esse recurso na nossa tabela:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span> <span class="s1">&#39;US$ </span><span class="si">%.2f</span><span class="s1"> = R$ </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%.2f</span><span class="s1"> = R$ </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
 
 <span class="go">US$ 4.00 = R$ 6.74</span>
 <span class="go">US$ 5.00 = R$ 8.43</span>
@@ -206,7 +206,7 @@
 </pre></div>
 </div>
 <p>Está quase linda. Falta só consertar o degrau que acontece entre a linha do 9 e do 10. No marcador de posição você também pode colocar um número à esquerda do ponto para definir a largura total do espaço que será reservado. Na faixa de preços de 4 a 15, os maiores valores tem cinco caracteres de comprimento (incluindo o ponto decimal), por isso vamos usar <code class="docutils literal"><span class="pre">%5.2f</span></code>. Agora podemos fazer uma versão bem melhor da tabela:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span> <span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
 
 <span class="go">US$  4.00 = R$  6.74</span>
 <span class="go">US$  5.00 = R$  8.43</span>
@@ -230,28 +230,28 @@
 <p>O comando <code class="docutils literal"><span class="pre">for</span></code> é algo que chamamos de &#8220;estrutura de controle&#8221;, que serve para determinar a forma de execução de um comando ou de uma seqüência de comandos, às vezes chamada de um &#8220;bloco&#8221;. Em outras linguagens, os blocos são delimitados por marcadores especiais. Java, Perl e C++ usam os sinais { e } para este fim. Pascal e Delphi usam as palavras <code class="docutils literal"><span class="pre">BEGIN</span></code> e <code class="docutils literal"><span class="pre">END</span></code>. Além desses marcadores exigidos pelas linguagens, os programadores usam também o recurso da endentação, ou seja, o recuo em relação à margem esquerda, para tornar mais fácil a visualização da estrutura do programa. Veja este exemplo em Perl:</p>
 <div class="highlight-perl"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="c1"># Atenção: isto é Perl, e não Python.</span>
     <span class="nv">$v</span> <span class="o">=</span> <span class="nv">$i</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
-    <span class="k">print</span> <span class="s">&quot;$v\n&quot;</span><span class="p">;</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;$v\n&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Aqui, os comandos <code class="docutils literal"><span class="pre">$v</span> <span class="pre">=</span> <span class="pre">$i</span> <span class="pre">*</span> <span class="pre">3;</span></code> e <code class="docutils literal"><span class="pre">print</span> <span class="pre">&quot;$v\n&quot;;</span></code> formam o bloco que está sobre o controle do comando <code class="docutils literal"><span class="pre">for</span></code>, ou seja, os dois comandos serão executados repetidamente. O programa equivalente em Python é escrito assim:</p>
+<p>Aqui, os comandos <code class="docutils literal"><span class="pre">$v</span> <span class="pre">=</span> <span class="pre">$i</span> <span class="pre">*</span> <span class="pre">3;</span></code> e <code class="docutils literal"><span class="pre">print(&quot;$v\n&quot;);</span></code> formam o bloco que está sobre o controle do comando <code class="docutils literal"><span class="pre">for</span></code>, ou seja, os dois comandos serão executados repetidamente. O programa equivalente em Python é escrito assim:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">3</span>
-    <span class="nb">print</span> <span class="n">v</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Na minha opinião, o código em Python é bem mais legível. Para sinalizar quais comandos fazem parte do bloco que está sob o controle do <code class="docutils literal"><span class="pre">for</span></code>, apenas a endentação é utilizada. Se você está usando o IDLE, esse recuo acontece automaticamente quando uma linha de comando termina com o sinal &#8216;:&#8217;, que em Python sempre indica o início de um bloco. No interpretador Python invocado a partir da linha de comando no DOS ou em UNIX, a endentação não é automática. Você precisa digitar ao menos um espaço em branco para evitar uma mensagem de erro como essa:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="gp">... </span><span class="nb">print</span> <span class="n">i</span>
+<span class="gp">... </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="go">  File &quot;&quot;, line 2</span>
-<span class="go">    print i</span>
+<span class="go">    print(i)</span>
 <span class="go">        ^</span>
 <span class="go">SyntaxError: invalid syntax</span>
 </pre></div>
 </div>
-<p>Note que o interpretador está reclamando de sintaxe inválida, e apontando (^) para a primeira palavra do bloco que deveria estar recuado. Veja a mesma coisa, com a segunda linha recuada com a tecla [TAB]:</p>
+<p>Note que o interpretador está reclamando de sintaxe inválida, e apontando o sinal <code class="docutils literal"><span class="pre">^</span></code> para a primeira palavra do bloco que deveria estar recuado. Veja a mesma coisa, com a segunda linha recuada com a tecla [TAB]:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="nb">print</span> <span class="n">i</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">0</span>
 <span class="go">1</span>
@@ -265,8 +265,8 @@
 <p>Agora que entendemos o conceito de bloco, podemos enfeitar ainda mais a nossa tabela colocando um segundo comando <code class="docutils literal"><span class="pre">print</span></code> dentro do nosso <code class="docutils literal"><span class="pre">for</span></code>.</p>
 <p>Veja este exemplo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="nb">print</span> <span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
-<span class="gp">... </span>   <span class="nb">print</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">20</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">))</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">US$  9.00 = R$ 15.17</span>
 <span class="go">--------------------</span>

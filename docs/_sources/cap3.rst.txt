@@ -15,8 +15,8 @@ Rodando programas no IDLE
 A versão Windows do Python traz o IDLE, um interpretador interativo em modo gráfico que já apresentamos no primeiro capítulo. Se você não usa essa versão do Python, vá direto para a próxima seção: Testando no sistema. O IDLE inclui um editor de programas simplório, mas útil para quem está aprendendo a linguagem. O editor do IDLE exibe com cores diferentes as palavras da linguagem, de acordo com sua função sintática (lembra da aula de português onde o verbo era verde, o sujeito vermelho etc?). Para abrir o editor, rode o IDLE e acione o comando ``File > New window``. A janela que se abrirá, com o título ``untitled``, é um editor. Experimente digitar um programinha como esse::
 
   for i in range(100):
-      print 'Fulano ',
-  print 'e seus Sicranos'
+      print('Fulano ', end='')
+  print('e seus Sicranos')
 
 Note que o editor pinta algumas palavras de laranja. São as chamadas palavras-chave, peças tão importantes em Python como os verbos em português. Outras cores indicaom funções e variáveis. E os textos entre aspas aparecem em verde: dessa forma, fica difícil esquecer de fechar aspas. Outra coisa que acontece magicamente é a endentação. O editor "sabe" que após os ":" do comando for, deve vir um bloco endentado. Para encerrar o bloco endentado, você pode teclar ``[ENTER]`` duas vezes para pular uma linha, como ocorre também na deixa do interpretador, ou então teclar ``[BackSpace]`` para apagar de uma vez só os quatro espaços à esquerda da linha.
 
@@ -106,8 +106,8 @@ Bom, deu trabalho mas chegamos. E como você deve ter notado, a execução do pr
 Agora vamos fazer uma pequena mudança no programa egotrip que terá um grande efeito. Para fazer essa alteração, no Windows o modo mais rápido é segurar a tecla ``[ALT]`` e pressionar ``[TAB]`` até que o ícone do editor do IDLE identificado pelo nome do arquivo ``egotrip.py`` esteja selecionado. Então solte a tecla ``[ALT]``, que o editor aparecerá sobrepondo-se às demais janelas. Agora vamos modificar o programa egotrip. Ao final da segunda linha, digite uma vírgula. O seu programa deverá ficar assim::
 
   for i in range(100):
-      print 'Luciano ',
-  print 'e seus Camargos'
+      print('Luciano ', end='')
+  print('e seus Camargos')
 
 Salve com ``[CTRL]+[S]`` e rode o programa novamente. Tecle ``[F5]`` para rodar no IDLE, ou siga esses passos para testar no DOS:
 
@@ -280,14 +280,14 @@ Não é obrigatória a presença de um bloco ``else`` após um ``if``. Mas um ``
 Um ``if`` pode ser seguido de qualquer quantidade de blocos ``elif``, e se houver um bloco ``else`` ele deverá vir depois de todos os ``elif``. Veja esse fragmento de código, parte de um jogo simples que criaremos no próximo capítulo::
 
   if vf == 0:
-      print 'Alunissagem perfeita!'
+      print('Alunissagem perfeita!')
   elif vf <= 2:
-      print 'Alunissagem dentro do padrao.'
+      print('Alunissagem dentro do padrao.')
   elif vf <= 10:
-      print 'Alunissagem com avarias leves.'
+      print('Alunissagem com avarias leves.')
   elif vf <= 20:
-      print 'Alunissagem com avarias severas.'
+      print('Alunissagem com avarias severas.')
   else:
-      print 'Modulo lunar destruido no impacto.'
+      print('Modulo lunar destruido no impacto.')
 
-Numa sequencia de ``if/elif/elif/.../else`` é garantido que um, e apenas um dos blocos será executado. Fica como desafio para o leitor descobrir como usar o comando elif para corrigir o bug dos gastos iguais, que aparece no programa ``despdom2.py``.
+Numa sequência de ``if/elif/elif/.../else`` é garantido que um, e apenas um dos blocos será executado. Fica como desafio para o leitor descobrir como usar o comando elif para corrigir o bug dos gastos iguais, que aparece no programa ``despdom2.py``.
