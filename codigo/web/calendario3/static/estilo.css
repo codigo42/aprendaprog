@@ -1,0 +1,5 @@
+table, th, td {border: 1px solid gray; font-family: sans-serif; }
+th {text-transform: lowercase;}
+th, td {padding: 5px;}
+td {text-align: right; width: 60px; }
+.sat, .sun {background-color: lightgray}
