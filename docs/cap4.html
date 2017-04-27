@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt_BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Capítulo 4: Orçamentos, pousos lunares e tratamento de erros &#8212; documentação Aprenda a Programar out</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'out',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="next" title="Capítulo 5: O segredo dos objetos-função" href="cap5.html" />
+    <link rel="prev" title="Capítulo 3: Do console para o editor de programas" href="cap3.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="capitulo-4-orcamentos-pousos-lunares-e-tratamento-de-erros">
+<h1>Capítulo 4: Orçamentos, pousos lunares e tratamento de erros<a class="headerlink" href="#capitulo-4-orcamentos-pousos-lunares-e-tratamento-de-erros" title="Link permanente para este título">¶</a></h1>
+<p>O capítulo anterior terminou com uma questão no ar. Após estudarmos todas as formas de se usar o comando if, restou o desafio de usar um bloco elif para consertar um pequeno defeito no programa <code class="docutils literal"><span class="pre">despdom2.py</span></code>. O bug se manifesta quando os gastos de Ana e Bia são iguais. Nesse caso, o programa escreve na tela:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Bia deve pagar: R$ 0.0
+</pre></div>
+</div>
+<p>Em vez de fazer a Bia escrever um cheque de zero reais, o melhor seria tratar esse caso especial. Veja como fazê-lo, usando uma construção <code class="docutils literal"><span class="pre">if…elif…else</span></code> (listagem 1). Se você guardou o arquivo <code class="docutils literal"><span class="pre">despdom2.py</span></code> da lição anterior, terá muito pouco o que digitar. Abra-o e salve com o nome de <code class="docutils literal"><span class="pre">despdom3.py</span></code>. O código é idêntico à versão anterior até a linha 14. Ali, você faz a primeira alteração: o <code class="docutils literal"><span class="pre">else</span></code> é substituído por um <code class="docutils literal"><span class="pre">elif</span></code> que verifica se Bia gastou menos que a média. As linhas 15 e 16 continuam como antes, mas agora elas só serão executadas se <code class="docutils literal"><span class="pre">bia</span> <span class="pre">&lt;</span> <span class="pre">media</span></code> for verdadeiro. As linhas 17 e 18 são novas, e servem para tratar o caso em que nem <code class="docutils literal"><span class="pre">ana</span> <span class="pre">&lt;</span> <span class="pre">media</span></code> nem <code class="docutils literal"><span class="pre">bia</span> <span class="pre">&lt;</span> <span class="pre">media</span></code>, ou seja, quando não há diferença a ser paga. Agora você pode testar o programa digitando valores diferentes e depois valores iguais para as despesas de Ana e Bia.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># despdom3.py - Calculadora de despesas domesticas - versao 3</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Balanco de despesas domesticas&#39;</span><span class="p">)</span>
+<span class="n">ana</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou Ana? &#39;</span><span class="p">))</span>
+<span class="n">bia</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou Bia? &#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">ana</span> <span class="o">+</span> <span class="n">bia</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Total de gastos: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+<span class="n">media</span> <span class="o">=</span> <span class="n">total</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Gastos por pessoa: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">media</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ana</span> <span class="o">&lt;</span> <span class="n">media</span><span class="p">:</span>
+    <span class="n">diferenca</span> <span class="o">=</span> <span class="n">media</span> <span class="o">-</span> <span class="n">ana</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ana deve pagar: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">diferenca</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">bia</span> <span class="o">&lt;</span> <span class="n">media</span><span class="p">:</span>
+    <span class="n">diferenca</span> <span class="o">=</span> <span class="n">media</span> <span class="o">-</span>  <span class="n">bia</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bia deve pagar: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">diferenca</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ana e Bia gastaram a mesma Quantia.&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="somadora-infinita">
+<h2>Somadora infinita<a class="headerlink" href="#somadora-infinita" title="Link permanente para este título">¶</a></h2>
+<p>Logo adiante iremos reescrever o programinha acima para torná-lo mais flexível, permitindo digitar os nomes e os gastos de qualquer número de pessoas. Assim ele será útil para repartir as contas de uma viagem de férias ou daquela festa entre amigos. Para começar, vamos construir um programa um pouco mais simples, capaz de somar uma série de números (listagem 2).</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># somadora1.py - somadora infinita - versão 1</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Digite cada valor a somar seguido de [ENTER].&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Para encerrar digite 0 (zero).&#39;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">n</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;TOTAL: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vamos ver o que faz esse programa, linha por linha.</p>
+<dl class="docutils">
+<dt>Linhas 3 e 4</dt>
+<dd>Exibimos as instruções de uso.</dd>
+<dt>Linha 5</dt>
+<dd>Usamos a função <code class="docutils literal"><span class="pre">input()</span></code> para exibir o sinal &#8221;:&#8221; e ler o primeiro valor digitado pelo usuário, e a função float para transformar a &#8216;&#8217;string&#8217;&#8217; resultante em um número de ponto flutuante. O resultado é armazenado na variável n.</dd>
+<dt>Linha 6</dt>
+<dd>A variável total servirá para guardar a soma acumulada. Para começar, colocamos nela o primeiro valor digitado.</dd>
+<dt>Linha 7</dt>
+<dd>Aqui usamos um novo comando de bloco, o <code class="docutils literal"><span class="pre">while</span></code>. Essa linha pode ser traduzida assim: &#8220;enquanto n é diferente de zero...&#8221;. Assim como o comando <code class="docutils literal"><span class="pre">for</span></code>, o <code class="docutils literal"><span class="pre">while</span></code> causa a execução repetida do bloco subordinado (linhas 8 e 9). Em um comando while, a repetição é condicionada a uma expressão lógica do mesmo tipo que usamos com o comando <code class="docutils literal"><span class="pre">if</span></code>. Nesse exemplo, a condição <code class="docutils literal"><span class="pre">n</span> <span class="pre">!=</span> <span class="pre">0</span></code> causará a repetição do bloco enquanto for verdadeiro que n é diferente de 0. No momento que n contiver o valor 0, a condição será falsa e a repetição deixará de ocorrer. O programa então seguirá para a linha 10.</dd>
+<dt>Linha 10</dt>
+<dd>Mostramos o total acumulado. Fim do programa.</dd>
+</dl>
+</div>
+<div class="section" id="mais-sobre-o-while">
+<h2>Mais sobre o <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#mais-sobre-o-while" title="Link permanente para este título">¶</a></h2>
+<p>Os comandos <code class="docutils literal"><span class="pre">while</span></code> e <code class="docutils literal"><span class="pre">for</span></code> são semelhantes por causarem a repetição de um bloco. Ambos são chamados, pelos computólogos, de comandos de iteração (iteração é sinônimo de repetição; não confunda com &#8220;interação&#8221;, que é uma ação recíproca entre dois ou mais agentes).</p>
+<p>A diferença é que no comando <code class="docutils literal"><span class="pre">for</span></code> a iteração serve para percorrer uma lista de itens, como fizemos anteriormente quando trabalhamos com tabelas de conversão. No caso do <code class="docutils literal"><span class="pre">for</span></code>, o número de repetições é conhecido de antemão: o bloco será executado uma vez para cada item da lista. O comando <code class="docutils literal"><span class="pre">while</span></code> serve para todos os outros casos de iteração, quando o número de repetições é desconhecido. Nossa somadora infinita é um exemplo típico: a iteração que solicita valores e os totaliza poderá ser repetida qualquer número de vezes, dependendo apenas da sua vontade.</p>
+<p>Agora vamos analisar de perto duas circunstâncias especiais. Rode o programa e digite 0 (zero) como primeiro valor. Nas linhas 5 e 6 o programa armazenará o zero nas variáveis <code class="docutils literal"><span class="pre">n</span></code> e <code class="docutils literal"><span class="pre">total</span></code>. A seguir, na linha 7, o comando <code class="docutils literal"><span class="pre">while</span></code> verificará a condição <code class="docutils literal"><span class="pre">n</span> <span class="pre">!=</span> <span class="pre">0</span></code>. Nesse caso, a condição será falsa. Então o bloco subordinado ao <code class="docutils literal"><span class="pre">while</span></code> não será executado nenhuma vez, e o programa passará direto para a linha 10, mostrando o total.</p>
+<p>Outro momento interessante ocorre quando o primeiro valor digitado não é zero, e a iteração é executada. Digamos que o usuário digitou 1&lt;enter&gt;, 2&lt;enter&gt; e 0&lt;enter&gt;. O zero digitado pelo usuário será lido e armazenado em n na linha 8, como já vimos. Na linha 9 o valor de n é somado ao total. Nessa iteração o valor de n é zero, portanto estamos somando zero ao total, uma operação inofensiva. Só após efetuar essa soma inútil, o programa retornará ao início do bloco e verificará que a condição do <code class="docutils literal"><span class="pre">while</span></code> não é mais verdadeira, pois agora nosso <code class="docutils literal"><span class="pre">n</span></code> é igual a zero. É importante perceber que, apesar de o valor de <code class="docutils literal"><span class="pre">n</span></code> passar a ser zero na linha 8, a execução continua até o fim do bloco, passando pela linha 9, para só então ocorrer o retorno ao início do bloco e a verificação da condição de continuidade da repetição.</p>
+<p>Quando estudamos as condições lógicas no final do capítulo anterior, aprendemos que Python considera o valor 0 (zero) como sinônimo de &#8220;falso&#8221;, e valores não-zero como &#8220;verdadeiros&#8221;. Programadores experientes em Python costumam tirar proveito desse fato para abreviar as condições que colocam em seus ifs e whiles. Em nosso programa <code class="docutils literal"><span class="pre">somadora1.py</span></code>, a linha 7:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>pode ser escrita de forma mais abreviada assim:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">n</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Faça essa alteração no programa e experimente. Você verá que nada mudou no seu funcionamento. Isso porque, quando n é diferente de zero, a condição &#8220;n&#8221; expressa em <code class="docutils literal"><span class="pre">while</span> <span class="pre">n:</span></code> é considerada verdadeira, e a iteração é executada. Quando n passa a ser zero, a condição é falsa, encerrando a iteração.</p>
+</div>
+<div class="section" id="loops-quase-infinitos">
+<h2>Loops (quase) infinitos<a class="headerlink" href="#loops-quase-infinitos" title="Link permanente para este título">¶</a></h2>
+<p>Outra forma de escrever a somadora, mais elegante em minha opinião, é a mostrada na listagem 3.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># somadora2.py - somadora infinita - versão 2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Digite cada valor a somar seguido de [ENTER].&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Para encerrar digite 0 (zero).&#39;</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">break</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;TOTAL: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Aqui a lógica é um pouco diferente: na linha 6 o loop <code class="docutils literal"><span class="pre">while</span></code> tem como condição a constante <code class="docutils literal"><span class="pre">True</span></code>, ou &#8220;verdadeiro&#8221;. Assim o loop das linhas 6 a 9 seria repetido infinitas vezes, em tese. Na prática, a linha 8 verifica se o valor de n é zero. Em caso afirmativo, o comando &#8220;break&#8221; é acionado. Isso faz com que o loop <code class="docutils literal"><span class="pre">while</span></code> seja interrompido imediatamente, e a execução do programa passa diretamente para a próxima linha após o bloco (linha 10 em nosso exemplo).</p>
+<p>Essa forma de codificar, usando loops infinitos com breaks, não está de acordo com a Programação Estruturada, a filosofia dominante entre os programadores nos anos 70. O problema é que não fica imediatamente aparente qual é a condição de terminação do loop e alguns professores de computação podem descontar pontos por isso. Mas em se tratando de um bloco de apenas três linhas, não acho que isso seja um grande problema. A vantagem é que agora a função de leitura de dados ocorre em apenas um lugar no programa (na linha 7) e não em dois, como na versão anterior (linhas 5 e 8 de somadora1.py). Isso simplificará nossa próxima alteração. Além disso, não acontece mais a totalização inútil da linha 9, somando zero ao total na saída, porque o comando break da linha 8 faz o programa passar direto para a linha 10.</p>
+<p>Uma forma mais natural de codificar esse loop seria usar comandos com o do/while ou repeat/until existentes em linguagens como C/C++/Java e Pascal/Delphi; nessas estruturas de controle, o teste é feito no fim do loop, garantindo a execução do bloco ao menos uma vez. É o que precisamos fazer aqui, mas Python não possui um comando de loop especial para essa situação. Vejamos outro exemplo.</p>
+<p>Suponha que você queira, por algum motivo estranho, somar os números naturais (1, 2, 3 etc.) até obter um total maior ou igual a 100. Observe na listagem 4 como ficaria o loop central para fazer isso em Delphi, Java e Python.</p>
+<div class="section" id="delphi">
+<h3>Delphi<a class="headerlink" href="#delphi" title="Link permanente para este título">¶</a></h3>
+<div class="highlight-pascal"><div class="highlight"><pre><span></span><span class="k">REPEAT</span>
+    <span class="n">n</span> <span class="o">:=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="n">total</span> <span class="o">:=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span><span class="o">;</span>
+<span class="k">UNTIL</span> <span class="p">(</span><span class="n">total</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="java">
+<h3>Java<a class="headerlink" href="#java" title="Link permanente para este título">¶</a></h3>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="o">{</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">total</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Link permanente para este título">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span>
+    <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span> <span class="k">break</span>
+</pre></div>
+</div>
+<p>Note que os três programas acima estão incompletos; reproduzimos apenas o loop principal. Generalizando, qualquer loop com teste no final pode ser codificado em Python usando-se uma combinação de <code class="docutils literal"><span class="pre">while</span> <span class="pre">True</span></code> e <code class="docutils literal"><span class="pre">if…break</span></code>, assim:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">comando1</span>
+    <span class="n">comando2</span>
+    <span class="c1"># etc.</span>
+    <span class="k">if</span> <span class="n">condicao_final</span><span class="p">:</span> <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="um-programa-mais-tolerante">
+<h2>Um programa mais tolerante<a class="headerlink" href="#um-programa-mais-tolerante" title="Link permanente para este título">¶</a></h2>
+<p>Um defeito das nossas somadoras, e de todos os programas que fizemos até agora, é que eles não toleram falhas na digitação. Se você rodar o programa <code class="docutils literal"><span class="pre">somadora2.py</span></code> e digitar apenas &lt;enter&gt; para encerrar, verá a seguinte mensagem na tela:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Traceback (innermost last):
+      File &#39;somadora1.py&#39;, line 7, in ?
+ n = float(input())
+ValueError: empty string for float()
+</pre></div>
+</div>
+<p>A segunda linha dessa mensagem identifica o local do erro: linha 7 do arquivo (file) <code class="docutils literal"><span class="pre">somadora1.py</span></code>. Na terceira linha está reproduzida a linha do programa onde ocorreu o problema, e a mensagem final informa qual foi o erro. Podemos traduzí-la assim: &#8220;Erro de valor: &#8216;&#8217;string&#8217;&#8217; vazia para a função <code class="docutils literal"><span class="pre">float()</span></code>&#8221;.</p>
+<p>O problema é que, ao digitarmos <code class="docutils literal"><span class="pre">&lt;enter&gt;</span></code> sem fornecer um número, a função <code class="docutils literal"><span class="pre">input()</span></code> retorna uma &#8216;&#8217;string&#8217;&#8217; vazia (nada mais justo, pois nada foi digitado). Em seguinda, a função <code class="docutils literal"><span class="pre">float()</span></code> tenta transformar a &#8216;&#8217;string&#8217;&#8217; vazia em um ponto flutuante, mas não sabe como. É ela que dispara a mensagem de erro, fazendo com que o programa seja interrompido antes de mostrar o valor total da soma.</p>
+<p>Efeito semelhante pode ser obtido se você digitar um texto qualquer em vez de um número. Experimente.</p>
+<p>Nesse caso, a mensagem de erro final é: <code class="docutils literal"><span class="pre">ValueError:</span> <span class="pre">invalid</span> <span class="pre">literal</span> <span class="pre">for</span> <span class="pre">''float''():</span> <span class="pre">blah</span></code>. Nesse caso, a reclamação é de &#8220;&#8217;&#8216;invalid literal&#8217;&#8216;&#8221;, significando que o texto fornecido para a função <code class="docutils literal"><span class="pre">float()</span></code> não se parece com um número.</p>
+<p>A melhor maneira de resolver esse problema envolve o uso de mais um comando de bloco de Python: o conjunto <code class="docutils literal"><span class="pre">try…except</span></code> (tentar…exceto). Esse par de palavras-chave formam o mecanismo de &#8220;tratamento de exceções&#8221; de Python, algo que só se encontra em linguagens modernas como Java e as versões mais recentes de C++. A idéia básica é simples: no caso da nossa somadora, vamos tentar (<code class="docutils literal"><span class="pre">try</span></code>) converter a &#8216;&#8217;string&#8217;&#8217; digitada em &#8216;&#8217;float&#8217;&#8216;; se isso não der certo, temos uma exceção, que deve ter tratamento especial. No nosso caso, vamos simplesmente acionar o comando <code class="docutils literal"><span class="pre">break</span></code> para interromper o &#8216;&#8217;loop&#8217;&#8217; e exibir a totalização.</p>
+<p>Veja na listagem abaixo como fica a <code class="docutils literal"><span class="pre">somadora3.py</span></code>, agora com tratamento de exceções.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># somadora3.py - somadora infinita - versão 3</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Digite cada valor a somar seguido de [ENTER].&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Para encerrar apenas [ENTER].&#39;</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;TOTAL: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vamos comentar apenas as diferenças em relação à versão anterior:</p>
+<dl class="docutils">
+<dt>Linha 4</dt>
+<dd>Mudamos a mensagem para o usuário, já que agora basta um <code class="docutils literal"><span class="pre">&lt;enter&gt;</span></code> para encerrar.</dd>
+<dt>Linha 7</dt>
+<dd>Início do bloco <code class="docutils literal"><span class="pre">try</span></code>: tentaremos executar as linhas 8 e 9. Qualquer erro que ocorrer aqui será tratado no bloco except.</dd>
+<dt>Linha 8</dt>
+<dd>Aqui é o local mais provável do erro, quando <code class="docutils literal"><span class="pre">float()</span></code> tenta converter o resultado de <code class="docutils literal"><span class="pre">input()</span></code>.</dd>
+<dt>Linha 9</dt>
+<dd>Se ocorrer um erro na linha 8, a linha 9 não será executada porque, dentro do bloco try qualquer erro causa a transferência imediata da execução para o bloco except correspondente.</dd>
+<dt>Linha 10</dt>
+<dd>Início do bloco <code class="docutils literal"><span class="pre">except</span></code> associado ao bloco <code class="docutils literal"><span class="pre">try</span></code> da linha 7</dd>
+<dt>Linha 11</dt>
+<dd>Tratamento do erro: em caso de exceção, vamos simplesmente interromper o loop com um comando <code class="docutils literal"><span class="pre">break</span></code>.</dd>
+<dt>Linha 12</dt>
+<dd>Como esta linha vem logo após um loop infinito (<code class="docutils literal"><span class="pre">while</span> <span class="pre">True</span></code>), a única forma de chegarmos aqui é através de um <code class="docutils literal"><span class="pre">break</span></code>. Ou seja, nesse caso o loop só termina em conseqüência de uma exceção.</dd>
+</dl>
+<p>Experimente o programa agora: ele ficou muito mais conveniente de usar. Para interromper a soma e obter o total, basta teclar &lt;enter&gt; em uma linha em branco. Uma boa melhoria na &#8220;usabilidade&#8221; da somadora!</p>
+</div>
+<div class="section" id="como-tratar-um-erro-de-verdade">
+<h2>Como tratar um erro de verdade<a class="headerlink" href="#como-tratar-um-erro-de-verdade" title="Link permanente para este título">¶</a></h2>
+<p>A terceira versão da nossa somadora ainda não chegou lá: tratamos da mesma forma a situação em que usuário não digitou nada e aquela onde ele digitou algo que não é um número válido em Python. Pode ser que o usuário seja um datilógrafo à moda antiga, que digita L minúsculo no lugar do dígito 1. Ou ainda alguém que quer usar, com toda razão, a &#8221;,&#8221; como separador decimal (Python só aceita números com ponto decimal). Para diferenciar um tipo de erro do outro, e saber quando o usuário apenas quer encerrar o programa, precisamos guardar a linha que ele digitou antes de tentar transformá-la em um número. Veja como na listagem abaixo:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># somadora4.py - somadora infinita - versão 4</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Digite cada valor a somar seguido de [ENTER].&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Para encerrar apenas [ENTER].&#39;</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">linha</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">linha</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">n</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">linha</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+             <span class="k">break</span>
+        <span class="k">elif</span> <span class="s1">&#39;,&#39;</span> <span class="ow">in</span> <span class="n">linha</span><span class="p">:</span>
+             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Use o . (ponto) como separador decimal.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+             <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Isso não parece um número válido.&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;TOTAL: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Vamos analisar as novidades dessa versão:</p>
+<dl class="docutils">
+<dt>Linha 8</dt>
+<dd>A nova variavel <code class="docutils literal"><span class="pre">linha</span></code> armazena a linha digitada pelo usuário, para verificação posterior.</dd>
+<dt>Linha 9</dt>
+<dd>A linha é convertida em número.</dd>
+<dt>Linha 11</dt>
+<dd>Início do bloco que tratará os erros, provavelmente ocorridos na linha 9.</dd>
+<dt>Linha 12</dt>
+<dd>A função <code class="docutils literal"><span class="pre">len()</span></code> retorna o número de itens de uma seqüência; nesse caso, o número de caracteres da &#8216;&#8217;string&#8217;&#8217; <code class="docutils literal"><span class="pre">linha</span></code>. Se o número é igual a zero, então a string está vazia.</dd>
+<dt>Linha 13</dt>
+<dd>No caso da &#8216;&#8217;string&#8217;&#8217; vazia, executamos um <code class="docutils literal"><span class="pre">break</span></code> porque o usuário não quer mais digitar.</dd>
+<dt>Linha 14</dt>
+<dd>O operador &#8216;&#8217;in&#8217;&#8217; (em) retorna verdadeiro se o item à esquerda for encontrado na seqüência à direita; nesse caso verificamos se existe uma vírgula dentro da &#8216;&#8217;string&#8217;&#8217; <code class="docutils literal"><span class="pre">linha</span></code>.</dd>
+<dt>Linha 15</dt>
+<dd>Como encontramos uma vírgula, vamos supor que o usuário tentou digitar um número fracionário. Então vamos sugerir que ele use o ponto decimal. Nesse caso, não executamos o <code class="docutils literal"><span class="pre">break</span></code>. Nenhum outro comando no bloco <code class="docutils literal"><span class="pre">if…elif…else</span></code> será executado, e o loop recomeçará de novo a partir da linha 6.</dd>
+<dt>Linhas 16 e 17</dt>
+<dd>Aqui vamos tratar todos os demais casos, dizendo que o que foi digitado não se parece com um número. Novamente, sem o <code class="docutils literal"><span class="pre">break</span></code>, o &#8216;&#8217;loop&#8217;&#8217; reiniciará, e logo o sinal &#8216;:&#8217; aparecerá na tela aguardando nova digitação.</dd>
+</dl>
+</div>
+<div class="section" id="associacao-de-nomes-a-valores">
+<h2>Associação de nomes a valores<a class="headerlink" href="#associacao-de-nomes-a-valores" title="Link permanente para este título">¶</a></h2>
+<p>Voltemos ao problema do cálculo de despesas. Nossa meta é fazer um programa que seja capaz de calcular a partilha de gastos de qualquer grupo de pessoas, e não apenas de Ana e Bia. Para isso, vamos precisar associar o nome das pessoas aos seus respectivos gastos. A linguagem Python possui uma estrutura de dados ideal para essa aplicação. É o dicionário, conhecido pelos programadores Perl como &#8216;&#8217;hash&#8217;&#8217; ou associação. Como ocorre em Perl, em Python o dicionário serve para associar chaves a valores. O mais comum é que as chaves sejam &#8216;&#8217;strings&#8217;&#8216;, como no nosso caso, onde as chaves serão nomes de pessoas. Mas as chaves podem ser qualquer tipo de objeto.</p>
+<p>Em Python o dicionário é bem mais poderoso que em Perl, pois seus valores podem conter qualquer tipo de objeto como listas e até mesmo outros dicionários. Para entender rapidamente o funcionamento de um dicionário, nada melhor que experimentar com o interpretador interativo IDLE. Faça os seguintes testes, que explicaremos em seguida:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;ze&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;mauricio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;heloisa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;ze&#39;</span><span class="p">]</span>
+<span class="go">300</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span>
+<span class="go">{&#39;mauricio&#39;: 100, &#39;ze&#39;: 300, &#39;heloisa&#39;: 150}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;ze&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span>
+<span class="go">{&#39;mauricio&#39;: 100, &#39;ze&#39;: 200, &#39;heloisa&#39;: 150}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">[&#39;mauricio&#39;, &#39;ze&#39;, &#39;heloisa&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;paulo&#39;</span><span class="p">]</span>
+<span class="go">Traceback (innermost last):</span>
+<span class="go">    File &#39;&#39;, line 1, in ?</span>
+<span class="go">     dic[&#39;paulo&#39;]</span>
+<span class="go">KeyError: paulo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;heloisa&#39;</span> <span class="ow">in</span> <span class="n">dic</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;paulo&#39;</span> <span class="ow">in</span> <span class="n">dic</span>
+<span class="go">False</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Linha 3</dt>
+<dd>Antes de usar um dicionário, é preciso criá-lo. Nesse caso, criamos um dicionário vazio. As chaves {} são usadas para representar dicionários, como veremos novamente nas linhas 10 e 13.</dd>
+<dt>Linhas 4, 5 e 6</dt>
+<dd>Criamos três itens no dicionário, usando as chaves &#8216;ze&#8217;, &#8216;mauricio&#8217; e &#8216;heloisa&#8217; e os valores 300, 100 e 150, respectivamente.</dd>
+<dt>Linhas 7 e 8</dt>
+<dd>Aqui acessamos o valor associado à chave &#8216;ze&#8217; e obtemos o número 300.</dd>
+<dt>Linhas 9 e 10</dt>
+<dd>Agora acessamos o dicionário como um todo, e obtemos uma listagem entre chaves, com os itens separados por vírgula. Cada par de chave e valor aparece separado pelo sinal &#8216;:&#8217;. Note que a ordem dos itens não tem lógica aparente. Python não garante a ordem dos itens de um dicionário.</dd>
+<dt>Linha 11</dt>
+<dd>Associamos um novo valor a uma chave existente. Num dicionário, todas as chaves são únicas. Não pode haver dois itens com a mesma chave &#8216;ze&#8217;. Assim, essa operação muda o valor associado à esta chave.</dd>
+<dt>Linhas 12 e 13</dt>
+<dd>Exibimos de novo o dicionário inteiro. Note que o valor associado à chave &#8216;ze&#8217; mudou.</dd>
+<dt>Linha 14</dt>
+<dd>O método <code class="docutils literal"><span class="pre">keys()</span></code> retorna a lista de chaves do dicionário. Um método nada mais é que uma função associada a um objeto, que deve ser invocada usando a sintaxe objeto.metodo(). Em nosso exemplo temos dic.keys().</dd>
+<dt>Linha 15</dt>
+<dd>Aqui aparece a lista de chaves. Note que a lista, como sempre, vem delimitada por colchetes. O resultado do método <code class="docutils literal"><span class="pre">keys()</span></code> é uma lista de chaves, e não um dicionário.</dd>
+<dt>Linhas 16 a 20</dt>
+<dd>Tentamos acessar o valor de uma chave inexistente. Python reclama com a mensagem <code class="docutils literal"><span class="pre">KeyError:</span> <span class="pre">paulo</span></code>, indicando que o dicionário não possui uma chave igual a &#8216;paulo&#8217;.</dd>
+<dt>Linhas 21 a 24</dt>
+<dd>Para verificar se uma determinada chave existe, usamos o operador <code class="docutils literal"><span class="pre">in</span></code>. Os exemplos mostram que <code class="docutils literal"><span class="pre">in</span></code> devolve <code class="docutils literal"><span class="pre">True</span></code> quando a chave está no dicionário, e <code class="docutils literal"><span class="pre">False</span></code> quando ela não está.</dd>
+</dl>
+</div>
+<div class="section" id="resolvendo-o-orcamento-da-republica">
+<h2>Resolvendo o Orçamento da República<a class="headerlink" href="#resolvendo-o-orcamento-da-republica" title="Link permanente para este título">¶</a></h2>
+<p>Agora que conhecemos o funcionamento básico dos dicionários, podemos implementar o nosso aplicativo de acerto de contas, que pode ser muito útil por exemplo na administração de uma república de universitários. Antes de mais nada, vejamos como vai funcionar o programa:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>C:\PythonXX\Curso&gt;python desprep1.py
+Balanco de despesas da Republica Recanto Suico
+
+(deixe um nome em branco para encerrar)
+
+Digite o nome da pessoa: Marcos
+Quanto gastou Marcos? 10
+Digite o nome da pessoa: Alexandre
+Quanto gastou Alexandre? 500
+Digite o nome da pessoa: Tyrone
+Quanto gastou Tyrone? 250
+Digite o nome da pessoa: Harley
+Quanto gastou Harley? 124,67
+Numero invalido.
+Quanto gastou Harley? 124.67
+Digite o nome da pessoa:
+
+Numero de pessoas: 4
+Total de gastos: R$ 884.67
+Gastos por pessoa: R$ 221.17
+
+Saldo de Marcos: -211.17
+Saldo de Alexandre: 278.83
+Saldo de Tyrone: 28.83
+Saldo de Harley: -96.50
+
+C:\PythonXX\Curso&gt;
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Linha 1</dt>
+<dd>Invocação do programa a partir da linha de comando.</dd>
+<dt>Linhas 2 e 4</dt>
+<dd>Apresentação e instruções de uso.</dd>
+<dt>Linha 6</dt>
+<dd>O programa pergunta o nome de uma pessoa.</dd>
+<dt>Linha 7</dt>
+<dd>A seguir, solicita o valor dos gastos daquela pessoa.</dd>
+<dt>Linhas 8 a 12</dt>
+<dd>O processo é repetido quantas vezes for necessário.</dd>
+<dt>Linha 13</dt>
+<dd>O usuário digita um número com vírgula no lugar do ponto decimal.</dd>
+<dt>Linha 14</dt>
+<dd>O programa informa que o numero é &#8220;inválido&#8221;.</dd>
+<dt>Linha 15</dt>
+<dd>Novamente o programa pede o valor gasto por Harley.</dd>
+<dt>Linha 16</dt>
+<dd>O usuário não fornece outro nome, encerrando a digitação.</dd>
+<dt>Linhas 18 a 20</dt>
+<dd>O número de pessoas, o total gasto e o gasto médio por pessoa são calculados.</dd>
+<dt>Linhas 22 a 25</dt>
+<dd>Para cada pessoa, o programa exibe seu saldo. Aqueles que têm saldo negativo têm valores a pagar; os que de saldo positivo têm valores a receber.</dd>
+</dl>
+<p>Agora, vamos à listagem do programa <code class="docutils literal"><span class="pre">desprep1.py</span></code>:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">#desprep1.py - calculo de despesas da republica</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Balanco de despesas da Republica Recanto Suico&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;(deixe um nome em branco para encerrar)&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">contas</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">pessoa</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Digite o nome da pessoa: &#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">pessoa</span><span class="p">:</span> <span class="k">break</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou </span><span class="si">%s</span><span class="s1">? &#39;</span> <span class="o">%</span> <span class="n">pessoa</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">gasto</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Numero invalido.&#39;</span><span class="p">)</span>
+    <span class="n">contas</span><span class="p">[</span><span class="n">pessoa</span><span class="p">]</span> <span class="o">=</span> <span class="n">gasto</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">gasto</span>
+
+<span class="n">num_pessoas</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">contas</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Numero de pessoas: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">num_pessoas</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Total de gastos: R$ </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+<span class="n">media</span> <span class="o">=</span> <span class="n">total</span><span class="o">/</span><span class="n">num_pessoas</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Gastos por pessoa: R$ </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">media</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">nome</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">contas</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="n">saldo</span> <span class="o">=</span> <span class="n">contas</span><span class="p">[</span><span class="n">nome</span><span class="p">]</span> <span class="o">-</span> <span class="n">media</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saldo de </span><span class="si">%s</span><span class="s1">: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">saldo</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="docutils">
+<dt>Linhas 3 a 5</dt>
+<dd>Exibir identificação e instruções.</dd>
+<dt>Linha 7</dt>
+<dd>A variável total é inicializada com o valor zero. Isso é necessário em função da linha 21.</dd>
+<dt>Linha 8</dt>
+<dd>O dicionário de contas é criado, sem conteúdo. Ele armazenará as contas de cada pessoa.</dd>
+<dt>Linha 9</dt>
+<dd>Início do loop principal.</dd>
+<dt>Linha 10</dt>
+<dd>Solicitamos um nome e armazenamos na variável pessoa.</dd>
+<dt>Linha 11</dt>
+<dd>Se a variável pessoa estiver vazia, nenhum nome foi digitado. Então executamos um break para deixar o loop principal, já que o usuário não quer mais fornecer nomes.</dd>
+<dt>Linha 12</dt>
+<dd>Início do loop secundário, para digitação do valor numérico.</dd>
+<dt>Linha 13</dt>
+<dd>Solicitamos o valor gasto pela pessoa em questão.</dd>
+<dt>Linha 14</dt>
+<dd>Início do bloco <code class="docutils literal"><span class="pre">try</span></code>, onde tentaremos converter a string digitada em número.</dd>
+<dt>Linha 15</dt>
+<dd>A conversão fatídica. Em caso de erro aqui, o programa saltará para o bloco <code class="docutils literal"><span class="pre">except</span></code>, na linha 17.</dd>
+<dt>Linha 16</dt>
+<dd>Esse <code class="docutils literal"><span class="pre">break</span></code> só será executado se não ocorrer erro na linha 15. Sua função é interromper o loop secundário quando obtivermos um valor numérico.</dd>
+<dt>Linhas 17 e 18</dt>
+<dd>O bloco <code class="docutils literal"><span class="pre">except</span></code> simplesmente exibe na tela a mensagem &#8220;Numero invalido&#8221;. Aqui se encerra o loop secundário, que repetirá novamente a partir da linha 12, solicitando outro valor.</dd>
+<dt>Linha 19</dt>
+<dd>O gasto obtido é armazenado no dicionário, usando o nome da pessoa como chave.</dd>
+<dt>Linha 20</dt>
+<dd>O total de gastos é atualizado. Aqui é o final do loop principal. Daqui o programa voltará para a linha 9, e pedirá os dados da próxima pessoa.</dd>
+<dt>Linha 22</dt>
+<dd>A função <code class="docutils literal"><span class="pre">len()</span></code> é usada para contar o número de itens no dicionário.</dd>
+<dt>Linhas 23 a 25</dt>
+<dd>São exibidos o número de pessoas e total gasto. A notação <code class="docutils literal"><span class="pre">%.2f</span></code> faz com que os gastos apareçam com duas casas decimais, pois trata-se de um valor em dinheiro.</dd>
+<dt>Linhas 26 a 27</dt>
+<dd>O gasto por cabeça é calculado e mostrado, também com duas casas decimais.</dd>
+<dt>Linha 29</dt>
+<dd>Aqui começamos um loop <code class="docutils literal"><span class="pre">for</span></code> que será repetido para cada nome que constar na lista de chaves do dicionário. A lista de chaves é obtida através do método <code class="docutils literal"><span class="pre">keys()</span></code>. A variável nome apontará, sucessivamente, para cada nome encontrado nesta lista.</dd>
+<dt>Linha 30</dt>
+<dd>Os valor gasto por uma pessoa é obtido acessando o dicionário com a expressão <code class="docutils literal"><span class="pre">contas[nome]</span></code>. Subtraímos o gasto médio para obter o saldo daquela pessoa.</dd>
+<dt>Linha 31</dt>
+<dd>Exibimos o nome e o saldo da pessoa. Esta é a última linha do loop <code class="docutils literal"><span class="pre">for</span></code>, que percorrerá todas as chaves do dicionário.</dd>
+</dl>
+</div>
+<div class="section" id="nossa-primeira-simulacao">
+<h2>Nossa primeira simulação<a class="headerlink" href="#nossa-primeira-simulacao" title="Link permanente para este título">¶</a></h2>
+<p>Agora já sabemos tudo o que precisávamos para implementar um jogo simples, como havíamos prometido no capítulo anterior. Trata-se de uma simulação de pouso lunar, em modo texto. Esse programinha é baseado em um jogo clássico escrito para calculadoras HP-25. Nossa versão é bem mais fácil de entender que o original para calculadora. Em vez de explicar linha por linha o funcionamento do programa, colocamos comentários abundantes na própria listagem, delimitados pelo sinal #. Lembre-se de que não é preciso digitar os comentários (e o programa inteiro pode ser simplesmente copiado aqui no site). Esse simulador de alunissagem é um game de recursos mínimos, mas ainda assim deve valer alguns minutos de diversão, especialmente se você curte a física ensinada no ensino médio.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># lunar.py</span>
+
+<span class="c1"># O jogo da alunissagem</span>
+
+<span class="c1"># importar função sqrt do modulo math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">500.</span>     <span class="c1"># altitude em pés</span>
+<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">50.</span>     <span class="c1"># velocidade em pés/s</span>
+<span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="mf">5.</span>      <span class="c1"># aceleração gravitacional lunar em pes/s/s</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">1.</span>       <span class="c1"># tempo entre jogadas em segundos</span>
+<span class="n">comb</span> <span class="o">=</span> <span class="mf">120.</span>  <span class="c1"># quantidade de combustível</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Simulação de alunissagem&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;(digite a quantidade de combustível a queimar)&#39;</span><span class="p">)</span>
+
+<span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;Alt: </span><span class="si">%6.2f</span><span class="s1">  Vel: </span><span class="si">%6.2f</span><span class="s1">  Comb: </span><span class="si">%3d</span><span class="s1">&#39;</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># enquanto não tocamos o solo</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">fmt</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">comb</span><span class="p">)</span> <span class="c1"># montar mensagem</span>
+    <span class="k">if</span> <span class="n">comb</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># ainda temos combustível?</span>
+        <span class="c1"># obter quantidade de combustível a queimar</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">msg</span> <span class="o">+</span> <span class="s1">&#39; Queima = &#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>    <span class="c1"># converter resposta em número</span>
+            <span class="n">queima</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span> <span class="c1"># a resposta não era um número</span>
+            <span class="n">queima</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">queima</span> <span class="o">&gt;</span> <span class="n">comb</span><span class="p">:</span> <span class="c1"># queimou mais do que tinha?</span>
+            <span class="n">queima</span> <span class="o">=</span> <span class="n">comb</span> <span class="c1"># então queima o que tem</span>
+        <span class="n">comb</span> <span class="o">=</span> <span class="n">comb</span> <span class="o">-</span> <span class="n">queima</span>    <span class="c1"># subtrai queimado</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">g</span> <span class="o">+</span> <span class="n">queima</span>    <span class="c1"># acel = grav + queima</span>
+    <span class="k">else</span><span class="p">:</span>    <span class="c1"># sem combustível</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>   <span class="c1"># mensagem sem perguntar</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">g</span>   <span class="c1"># aceleração = gravidade</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># armazenar posição inicial</span>
+    <span class="n">v0</span> <span class="o">=</span> <span class="n">v</span>  <span class="c1"># armazenar velocidade inicial</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="mi">2</span>     <span class="c1"># calc. nova posição</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">t</span>                <span class="c1"># calc. nova vel.</span>
+<span class="c1"># se o loop acabou, tocamos no solo (x &lt;= 0)</span>
+<span class="n">vf</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">v0</span><span class="o">*</span><span class="n">v0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*-</span><span class="n">a</span><span class="o">*</span><span class="n">x0</span><span class="p">)</span>  <span class="c1"># calcular vel. final</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; CONTATO! Velocidade final: </span><span class="si">%6.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="o">-</span><span class="n">vf</span><span class="p">))</span>
+<span class="c1"># avaliar pouso de acordo com a velocidade final</span>
+<span class="k">if</span> <span class="n">vf</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Alunissagem perfeita!&#39;</span>
+<span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Alunissagem dentro do padrao.&#39;</span>
+<span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Alunissagem com avarias leves.&#39;</span>
+<span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Alunissagem com avarias severas.&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Modulo lunar destruido no impacto.&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt;&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="como-jogar">
+<h3>Como jogar<a class="headerlink" href="#como-jogar" title="Link permanente para este título">¶</a></h3>
+<p>Seu objetivo é desacelerar a nave, queimando combustível na dosagem certa ao longo da queda, para tocar o solo lunar com uma velocidade bem próxima de zero. As unidades estão no sistema inglês, como no original. O mais importante é você saber que cada 5 unidades de combustível queimadas anulam a aceleração da gravidade. Se queimar mais do que 5 unidades, você desacelera; menos do que 5, você ganha velocidade. Primeiro, pratique seus pousos preocupando-se apenas com a velocidade final. Depois você pode aumentar a dificuldade, estabelecendo um limite de tempo: por exemplo, o pouso tem que ocorrer em exatos 13 segundos. Uma última dica: cuidado para não queimar combustível cedo demais. Se você subir, vai acabar caindo de uma altura ainda maior! Boas alunissagens!</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabela de Conteúdo</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Capítulo 4: Orçamentos, pousos lunares e tratamento de erros</a><ul>
+<li><a class="reference internal" href="#somadora-infinita">Somadora infinita</a></li>
+<li><a class="reference internal" href="#mais-sobre-o-while">Mais sobre o <code class="docutils literal"><span class="pre">while</span></code></a></li>
+<li><a class="reference internal" href="#loops-quase-infinitos">Loops (quase) infinitos</a><ul>
+<li><a class="reference internal" href="#delphi">Delphi</a></li>
+<li><a class="reference internal" href="#java">Java</a></li>
+<li><a class="reference internal" href="#python">Python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#um-programa-mais-tolerante">Um programa mais tolerante</a></li>
+<li><a class="reference internal" href="#como-tratar-um-erro-de-verdade">Como tratar um erro de verdade</a></li>
+<li><a class="reference internal" href="#associacao-de-nomes-a-valores">Associação de nomes a valores</a></li>
+<li><a class="reference internal" href="#resolvendo-o-orcamento-da-republica">Resolvendo o Orçamento da República</a></li>
+<li><a class="reference internal" href="#nossa-primeira-simulacao">Nossa primeira simulação</a><ul>
+<li><a class="reference internal" href="#como-jogar">Como jogar</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cap3.html" title="capítulo anterior">Capítulo 3: Do console para o editor de programas</a></li>
+      <li>Next: <a href="cap5.html" title="próximo capítulo">Capítulo 5: O segredo dos objetos-função</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Essa Página</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cap4.rst.txt"
+            rel="nofollow">Exibir Fonte</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Busca rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Luciano Ramalho.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/cap4.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

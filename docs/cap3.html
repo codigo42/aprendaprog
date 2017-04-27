@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt_BR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Capítulo 3: Do console para o editor de programas &#8212; documentação Aprenda a Programar out</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'out',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="next" title="Capítulo 4: Orçamentos, pousos lunares e tratamento de erros" href="cap4.html" />
+    <link rel="prev" title="Capítulo 2: Criando uma tabela" href="cap2.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="capitulo-3-do-console-para-o-editor-de-programas">
+<h1>Capítulo 3: Do console para o editor de programas<a class="headerlink" href="#capitulo-3-do-console-para-o-editor-de-programas" title="Link permanente para este título">¶</a></h1>
+<p>Depois de dois capítulos bem básicos, é hora de engatar uma segunda e começar a criar programas mais dignos desse nome. Não vamos desprezar o que fizemos até aqui, digitando diretamente na deixa do interpretador Python. Ao contrário: tenha sempre em mente que você pode usá-lo para esclarecer aquela dúvida rápida ou mesmo localizar um bug escondido em um sistema complexo. A maioria das outras linguagens não oferece um ambiente para execução imediata de comandos como o Python. Uma exceção famosa é a linguagem Logo, onde o interpretador interativo serve justamente para facilitar a aprendizagem da programação através da exploração e experimentos.</p>
+<p>Mas a partir de agora vamos atacar programas mais extensos, e não vamos querer digitá-los linha por linha no modo interativo. Em vez disso, vamos escrever os comandos em um editor de textos, salvar o arquivo, e mandar o interpretador Python ler o programa salvo.</p>
+<div class="section" id="rodando-programas-no-idle">
+<h2>Rodando programas no IDLE<a class="headerlink" href="#rodando-programas-no-idle" title="Link permanente para este título">¶</a></h2>
+<p>A versão Windows do Python traz o IDLE, um interpretador interativo em modo gráfico que já apresentamos no primeiro capítulo. Se você não usa essa versão do Python, vá direto para a próxima seção: Testando no sistema. O IDLE inclui um editor de programas simplório, mas útil para quem está aprendendo a linguagem. O editor do IDLE exibe com cores diferentes as palavras da linguagem, de acordo com sua função sintática (lembra da aula de português onde o verbo era verde, o sujeito vermelho etc?). Para abrir o editor, rode o IDLE e acione o comando <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">window</span></code>. A janela que se abrirá, com o título <code class="docutils literal"><span class="pre">untitled</span></code>, é um editor. Experimente digitar um programinha como esse:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;Fulano &#39;</span><span class="p">,</span>
+<span class="k">print</span> <span class="s1">&#39;e seus Sicranos&#39;</span>
+</pre></div>
+</div>
+<p>Note que o editor pinta algumas palavras de laranja. São as chamadas palavras-chave, peças tão importantes em Python como os verbos em português. Outras cores indicaom funções e variáveis. E os textos entre aspas aparecem em verde: dessa forma, fica difícil esquecer de fechar aspas. Outra coisa que acontece magicamente é a endentação. O editor &#8220;sabe&#8221; que após os &#8221;:&#8221; do comando for, deve vir um bloco endentado. Para encerrar o bloco endentado, você pode teclar <code class="docutils literal"><span class="pre">[ENTER]</span></code> duas vezes para pular uma linha, como ocorre também na deixa do interpretador, ou então teclar <code class="docutils literal"><span class="pre">[BackSpace]</span></code> para apagar de uma vez só os quatro espaços à esquerda da linha.</p>
+<p>Uma vez digitado esse programinha você pode executá-lo de duas maneiras: diretamente de dentro do IDLE ou no console do sistema operacional. Para fazer o IDLE rodar o seu programa é só teclar <code class="docutils literal"><span class="pre">[F5]</span></code>. Se você ainda não salvou o código do seu programa, o IDLE vai exibir uma mensagem pedindo para que você o faça. Basta usar o comando File &gt; Save, ou melhor ainda, <code class="docutils literal"><span class="pre">[CTRL]+[S]</span></code>. Se você não sabe onde salvar, sugiro que crie uma pasta chamada Curso dentro da pasta onde está o seu interpretador Python e salve ali (provavelmente a pasta ficará sendo <code class="docutils literal"><span class="pre">C:\Python25\Curso</span></code>, no caso do Python 2.5). Assim fica fácil encontrá-lo depois. Use o nome <code class="docutils literal"><span class="pre">egotrip.py</span></code>.</p>
+<p>O programinha <code class="docutils literal"><span class="pre">egotrip.py</span></code> faz o nome do autor aparecer 100 vezes, seguinda do nome de sua banda. No tempo dos computadores de 8 bits, programinhas como esse eram invariavelmente os primeiros exercícios de qualquer estudante de programação. No IDLE, a &#8220;saída&#8221; do programa (aquilo que ele exibe ao rodar), aparece dentro de uma janela intitulada <code class="docutils literal"><span class="pre">Python</span> <span class="pre">Shell</span></code>. Você pode fechar essa janela quando o programa parar.</p>
+<p>Você talvez tenha notado que o programa é meio lento. Em meu velho &#8216;&#8217;notebook&#8217;&#8217; Pentium 133 o programa levava 10 segundos para escrever as 101 linhas. É muito. Mas a culpa não é do Python, e sim do IDLE, como veremos a seguir.</p>
+</div>
+<div class="section" id="navegando-pela-linha-de-comando">
+<h2>Navegando pela linha de comando<a class="headerlink" href="#navegando-pela-linha-de-comando" title="Link permanente para este título">¶</a></h2>
+<p>No Linux a linha de comando está em toda parte, mas no Windows fica um pouco escondida. Para encontrá-la, clique na barra de tarefas do Windows XP em <code class="docutils literal"><span class="pre">Iniciar</span> <span class="pre">&gt;</span> <span class="pre">Executar...</span></code>. Na janelinha que se abre, digite apenas <code class="docutils literal"><span class="pre">cmd</span></code>. Isso executa o interpretador de comandos do Windows, equivalente ao velho MS-DOS nos Windows mais antigos. Para quem nunca navegou pelo sistema via prompt, eis aqui o mínimo que você precisa saber. Veja o que aparece na janela do Prompt:</p>
+<p>À esquerda do cursor, você tem a informação mais importante para se orientar: a letra do drive e o nome da pasta onde você se encontra. Se o seu Windows está com a configuração de fábrica, você estará em <code class="docutils literal"><span class="pre">C:\Windows</span></code>. O sinal &gt; é apenas a deixa do sistema, equivalente ao <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> usado pelo Python para indicar que está pronto para receber um comando. Antes de mais nada, vamos acionar um programinha que nos poupará muita digitação posteriormente.</p>
+<p>Agora, vamos ver o que existe na pasta onde estamos (a pasta Windows). Digite:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span><span class="o">&gt;</span><span class="nb">dir</span> <span class="p">[</span><span class="n">ENTER</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Você verá uma longa listagem de arquivos, com seus nomes abreviados, extensões, tamanhos, datas e nomes longos. Em meu &#8216;&#8217;notebook&#8217;&#8217; aparecem 236 arquivos na pasta Windows. Não estamos interessados neles agora, o objetivo era apenas mostrar que o comando dir produz uma listagem dos arquivos da pasta, ou diretório, atual.</p>
+<p>Agora vamos navegar até o diretório onde foi gravado o programa <code class="docutils literal"><span class="pre">egotrip.py</span></code>. Digite:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Windows</span><span class="o">&gt;</span><span class="n">cd</span> \ <span class="p">[</span><span class="n">ENTER</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Agora você está no chamado diretório raiz do seu disco. Digite <code class="docutils literal"><span class="pre">dir</span></code> e veja como a maioria dos itens dentro dessa pasta são outras pastas, como a própria pasta Windows. Agora vamos entrar na pasta do Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cd</span> <span class="n">pythonXX</span> <span class="p">[</span><span class="n">ENTER</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>E, em seguida, na pasta Curso, que você deve ter criado quando salvou o arquivo <code class="docutils literal"><span class="pre">egotrip.py</span></code>.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>C:\PythonXX&gt;cd curso
+C:\PythonXX\Curso&gt;dir
+</pre></div>
+</div>
+<p>Você deverá ver uma listagem como essa:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>O volume da unidade C é XXX
+O número de série do volume é XXXX-XXXX
+Pasta de C:\PythonXX\Curso
+
+.              &lt;DIR&gt;        25/10/99  20:57 .
+..             &lt;DIR&gt;        25/10/99  20:57 ..
+EGOTRIP  PY             89  25/10/99  20:32 egotrip.py
+         1 arquivo(s)             89  bytes
+         2 pasta(s)      21.331.968  bytes disponíveis
+
+C:\PythonXX\Curso&gt;
+</pre></div>
+</div>
+<p>Agora você está no ponto certo para digitar o comando que causará a execução do seu programa <code class="docutils literal"><span class="pre">egotrip.py</span></code>.</p>
+</div>
+<div class="section" id="testando-no-sistema">
+<h2>Testando no sistema<a class="headerlink" href="#testando-no-sistema" title="Link permanente para este título">¶</a></h2>
+<p>Meu ambiente favorito para rodar programas em Python é a própria linha de comando do sistema operacional. Não costumo usar o editor do IDLE, mas sim o NotePad++, um excelente editor de textos livre e gratuito para Windows. Seja qual for o editor que você usa, o importante é salvar o arquivo como texto puro, sem marcas de formatação. O Notepad é melhor que Word para esse fim, mas o NotePad++ é muito melhor. No Linux, Gedit, Kate, Pico, Vi e Emacs são alguns editores de texto puro bastante comuns. Entre esses, prefiro Gedit e Kate, que têm interfaces mais modernas. Uma vez digitado e salvo o arquivo, você precisa executá-lo a partir da linha de comando do seu sistema.</p>
+<p>Quem usa Linux ou já está habituado ao DOS, pode seguir até a próxima seção, ASCII art.</p>
+</div>
+<div class="section" id="ascii-art">
+<h2>ASCII art<a class="headerlink" href="#ascii-art" title="Link permanente para este título">¶</a></h2>
+<p>No Windows, para executar o programa, digite esse encantamento (supondo que você fez tudo conforme descrito na seção acima, ou fez tudo diferente mas sabia o que estava fazendo):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">PythonXX</span>\<span class="n">Curso</span><span class="o">&gt;..</span>\<span class="n">python</span> <span class="n">egotrip</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Os sinais <code class="docutils literal"><span class="pre">..\</span></code> na frente do comando python servem para dizer ao DOS para executar um programa que está no diretório anterior no caminho atual. Assim, acionamos o programa <code class="docutils literal"><span class="pre">python.exe</span></code> que está na pasta <code class="docutils literal"><span class="pre">C:\PythonXX</span></code>.</p>
+<p>No Linux, você precisará chegar até o diretório que contém o exemplo, e digitar:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ python egotrip.py
+</pre></div>
+</div>
+<p>Ou, se isso não funcionar, tente algo como segue (o comando exato vai depender da sua instalação):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ /usr/local/bin/python egotrip.py
+$ /usr/bin/python egtrip.py
+</pre></div>
+</div>
+<p>Bom, deu trabalho mas chegamos. E como você deve ter notado, a execução do programinha foi bem mais veloz que no IDLE (em meu computador, menos de 1 segundo, em vez de 10).</p>
+<p>Agora vamos fazer uma pequena mudança no programa egotrip que terá um grande efeito. Para fazer essa alteração, no Windows o modo mais rápido é segurar a tecla <code class="docutils literal"><span class="pre">[ALT]</span></code> e pressionar <code class="docutils literal"><span class="pre">[TAB]</span></code> até que o ícone do editor do IDLE identificado pelo nome do arquivo <code class="docutils literal"><span class="pre">egotrip.py</span></code> esteja selecionado. Então solte a tecla <code class="docutils literal"><span class="pre">[ALT]</span></code>, que o editor aparecerá sobrepondo-se às demais janelas. Agora vamos modificar o programa egotrip. Ao final da segunda linha, digite uma vírgula. O seu programa deverá ficar assim:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;Luciano &#39;</span><span class="p">,</span>
+<span class="k">print</span> <span class="s1">&#39;e seus Camargos&#39;</span>
+</pre></div>
+</div>
+<p>Salve com <code class="docutils literal"><span class="pre">[CTRL]+[S]</span></code> e rode o programa novamente. Tecle <code class="docutils literal"><span class="pre">[F5]</span></code> para rodar no IDLE, ou siga esses passos para testar no DOS:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">[ALT]+[TAB]</span></code> até voltar ao &#8216;&#8217;prompt&#8217;&#8217; do DOS</li>
+<li><code class="docutils literal"><span class="pre">[</span></code> <img alt="uparrow" src="_images/uparrow.png" /> <code class="docutils literal"><span class="pre">]</span></code> (seta para cima) para repetir o comando <code class="docutils literal"><span class="pre">..\python</span> <span class="pre">egotrip.py</span></code></li>
+<li><code class="docutils literal"><span class="pre">[ENTER]</span></code> para executar o comando.</li>
+</ul>
+</div></blockquote>
+<p>10 entre 10 programadores que usam a plataforma Windows têm muita prática com a sequência <code class="docutils literal"><span class="pre">[ALT]+[TAB]</span></code>, <code class="docutils literal"><span class="pre">[</span></code> <img alt="uparrow" src="_images/uparrow.png" /> <code class="docutils literal"><span class="pre">]</span></code>, <code class="docutils literal"><span class="pre">[ENTER]</span></code>. Logo, logo, em sua primeira sessão de caça a um bug, você terá oportunidade de praticar bastante.</p>
+<p>Nesse caso, é interessante testar o programa tanto no IDLE quanto na linha de comando. Você verá que os resultados são bem diferentes. Experimente e tente explicar porquê.</p>
+<p>Como exercício final, substitua o argumento 100 da função range pelo número 1000, e rode o programa novamente (não recomendo usar o <code class="docutils literal"><span class="pre">[F5]</span></code> do IDLE dessa vez; será bem demorado). Tente acrescentar ou retirar letras dos nomes. O efeito será diferente. Bem vindo ao mundo da expressão artística com caracteres de computador.</p>
+</div>
+<div class="section" id="seu-primeiro-programa-interativo">
+<h2>Seu primeiro programa interativo<a class="headerlink" href="#seu-primeiro-programa-interativo" title="Link permanente para este título">¶</a></h2>
+<p>Até agora, todos os programas que mostramos não são interativos, ou seja, uma vez rodando, eles não aceitam a entrada de dados de um usuário ou do sistema. Programas não interativos são usados em muitas situações comuns. O programa que emite os cheques da folha de pagamentos de uma grande empresa provavelmente não é interativo, mas recebe todos os dados necessários em um único lote, antes de sua execução. Mas os programas mais interessantes, como um processador de textos, um &#8216;&#8217;game&#8217;&#8217; ou o piloto automático de um avião são todos interativos. Esse é o tipo de programa que passaremos a desenvolver agora.</p>
+<p>Nosso passeio pela ASCII art não teve apenas objetivos estéticos. Quisemos mostrar como rodar um programa em Python a partir da linha de comando porque, a partir de agora, vamos usar um comando da linguagem Python que não funciona na atual versão do IDLE. O comando chama-se <code class="docutils literal"><span class="pre">raw_input</span></code>, e sua função é receber uma entrada de dados do usuário (input quer dizer entrada de dados; cuidado porque você deve ter sido condicionado a acreditar que &#8220;antes de P e B sempre vem a letra M&#8221;, mas input é inglês, e se escreve com N mesmo; eu perdi uma hora com isso quando aprendia BASIC).</p>
+<p>Vejamos um primeiro exemplo. Observe que não estamos acentuando o texto no programa porque o DOS não reproduz corretamente os acentos do Windows, e precisamos do DOS para testar esse programa. Deve haver uma forma de convencer o DOS a exibir os acentos corretos do Windows, mas ainda não descobrimos como.</p>
+<p>De qualquer forma, isso não quer dizer que não dá para fazer programas com acentuação correta em Python; quando aprendermos a criar softwares gráficos esse problema desaparecerá.</p>
+<p>Digite o programinha abaixo, salve como <code class="docutils literal"><span class="pre">despdom1.py</span></code> e execute na linha de comando.</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Por fazer</p>
+<p class="last">Mostrar como usar encoding para fazer mensagens acentuadas</p>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># despdom1.py - Calculadora de despesas domesticas</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Balanco de despesas domesticas&#39;</span><span class="p">)</span>
+<span class="n">ana</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou Ana? &#39;</span><span class="p">)</span>
+<span class="n">bia</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou Bia? &#39;</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">ana</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">bia</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Total de gastos = R$ </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+<span class="n">media</span> <span class="o">=</span> <span class="n">total</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Gastos por pessoa = R$ </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">media</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Os números que aparecem à esquerda na listagem acima não fazem parte do programa e não devem ser digitados. Eles estão aí para facilitar a explicação que vem logo a seguir.</p>
+<p>Antes de esmiuçar o programa, vale a pena executá-lo para ver o que acontece. Você será solicitado a digitar um valor para Ana e outro para Bia. Note que os valores deverão ser apenas números. Se quiser usar centavos, use o ponto decimal em vez de vírgula, como já vínhamos fazendo antes. E nada de $ ou R$. Vejamos um exemplo de execução:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>C:\PythonXX\Curso&gt;..\python despdom1.py
+Balanco de despesas domesticas
+
+Quanto gastou Ana? 10
+Quanto gastou Bia? 20
+Total de gastos = 30.0
+Gastos por pessoa = 15.0
+
+C:\PythonXX\Curso&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="dissecando-o-codigo">
+<h2>Dissecando o código<a class="headerlink" href="#dissecando-o-codigo" title="Link permanente para este título">¶</a></h2>
+<p>Agora vamos acompanhar, linha por linha, como o interpretador executou o programa. Essa é a atividade mais importante para desenvolver você como programador ou programadora. Você precisa aprender a ler um programa e simular mentalmente que acontece dentro do computador. &#8220;Quando você aprender a se colocar no lugar do computador ao ler um programa, estará pronto, Gafanhoto&#8221;.</p>
+<dl class="docutils">
+<dt>Linha 1</dt>
+<dd>O sinal # indica comentário. Tudo o que aparece em uma linha a partir desse sinal é ignorado pelo interpretador Python. Neste caso, o comentário explica para nós, humanos, o propósito do programa. Note que o comentário não aparece para o usuário final quando o programa é executado. Comentários servem apenas para ser lidos por outros programadores.</dd>
+<dt>Linha 3</dt>
+<dd>O velho comando <code class="docutils literal"><span class="pre">print</span></code> é usado para escrever o título &#8220;Balanco de despesas domesticas&#8221; na tela do usuário.</dd>
+<dt>Linha 4</dt>
+<dd>O comando <code class="docutils literal"><span class="pre">raw_input</span></code> exibe a pergunta &#8220;Quanto gastou Ana?&#8221;, aguarda uma resposta e armazena na varíavel ana.</dd>
+<dt>Linha 5</dt>
+<dd>O mesmo comando é usado para guardar os gastos de Bia na variável bia.</dd>
+<dt>Linha 6</dt>
+<dd>Aqui é calculado o total. Note o uso da função &#8216;&#8217;float&#8217;&#8216;. Acontece que a função <code class="docutils literal"><span class="pre">raw_input</span></code> não retorna números, e sim &#8216;&#8217;strings&#8217;&#8216;. Como vimos no capítulo anterior, o operador &#8220;+&#8221; tem efeitos diferentes quando aplicado a &#8216;&#8217;strings&#8217;&#8216;; em vez de somar, ele concatena ou junta os textos. Nesse caso, se <code class="docutils literal"><span class="pre">ana</span></code> é <code class="docutils literal"><span class="pre">'10'</span></code> e <code class="docutils literal"><span class="pre">bia</span></code> é <code class="docutils literal"><span class="pre">'20'</span></code>, <code class="docutils literal"><span class="pre">ana</span> <span class="pre">+</span> <span class="pre">bia</span></code> seria <code class="docutils literal"><span class="pre">'1020'</span></code>. Para realizar a soma, precisamos antes transformar as &#8216;&#8217;strings&#8217;&#8217; em números, o que é feito pelas funções <code class="docutils literal"><span class="pre">float</span></code> ou <code class="docutils literal"><span class="pre">int</span></code>. Nesse caso, usamos <code class="docutils literal"><span class="pre">float</span></code> porque não vamos nos limitar a aceitar números inteiros.</dd>
+<dt>Linha 7</dt>
+<dd>O total é exibido, com o auxílio do operador % que insere o valor na posição assinalada pelos caracteres %s dentro da mensagem. O código %s faz com que Python transforme o número em &#8216;&#8217;string&#8217;&#8216;.</dd>
+<dt>Linha 8</dt>
+<dd>Cálculo da média. Como ambos os valores são float, o resultado será preciso (se fossem inteiros, o resultado também seria forçado a ser inteiro, o que nesse caso levaria a erros do tipo).</dd>
+<dt>Linha 9</dt>
+<dd>Mostramos a média, usando a mesma técnica da linha 7.</dd>
+</dl>
+<p>Experimente rodar o programa algumas vezes. Note que não é um programa muito robusto: se você não digitar coisa alguma e teclar [ENTER] após uma das perguntas, ou responder com letras em vez de números, o programa &#8220;quebra&#8221;. No próximo capítulo aprenderemos a lidar com entradas inesperadas.</p>
+</div>
+<div class="section" id="um-programa-mais-esperto">
+<h2>Um programa mais esperto<a class="headerlink" href="#um-programa-mais-esperto" title="Link permanente para este título">¶</a></h2>
+<p>O programa acima é quase útil. Ele calcula a despesa total e a média, mas não responde à pergunta fundamental: quanto Ana tem que pagar a Bia, ou vice-versa? A aritmética envolvida é simples: se Ana gastou menos, ela precisa pagar a Bia um valor igual à diferença entre o que gastou e a média. Gostaríamos que nosso programa funcionasse assim:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Balanco de despesas domesticas
+
+Quanto gastou Ana? 10
+Quanto gastou Bia? 20
+Total de gastos: R$ 30.0
+Gastos por pessoa: R$ 15.0
+Ana deve pagar: R$ 5.0
+</pre></div>
+</div>
+<p>Utilize o comando <code class="docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Save</span> <span class="pre">As...</span></code> para salvar o programa <code class="docutils literal"><span class="pre">despdom1.py</span></code> como <code class="docutils literal"><span class="pre">despdom2.py</span></code>. Agora vamos modificá-lo para fazer o que queremos. Abaixo, o programa final, e a seguir, a explicação de cada mudança que foi feita.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># despdom2.py - Calculadora de despesas domesticas - versao 2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Balanco de despesas domesticas&#39;</span><span class="p">)</span>
+<span class="n">ana</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou Ana? &#39;</span><span class="p">))</span>
+<span class="n">bia</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Quanto gastou Bia? &#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">ana</span> <span class="o">+</span> <span class="n">bia</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Total de gastos: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">total</span><span class="p">)</span>
+<span class="n">media</span> <span class="o">=</span> <span class="n">total</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Gastos por pessoa: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">media</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">ana</span> <span class="o">&lt;</span> <span class="n">media</span><span class="p">:</span>
+    <span class="n">diferenca</span> <span class="o">=</span> <span class="n">media</span> <span class="o">-</span> <span class="n">ana</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Ana deve pagar: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">diferenca</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">diferenca</span> <span class="o">=</span> <span class="n">media</span> <span class="o">-</span> <span class="n">bia</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Bia deve pagar: R$ </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">diferenca</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>O que mudou:</p>
+<dl class="docutils">
+<dt>Linha 1</dt>
+<dd>Acrescentamos &#8220;versao 2&#8221; ao comentário</dd>
+<dt>Linhas 4 e 5</dt>
+<dd>Aqui fazemos a conversão dos resultados de raw_input para float imediatamente, de modo que os valores armazenados na variáveis ana e bia são números, e não &#8216;&#8217;strings&#8217;&#8217; como antes.</dd>
+<dt>Linha 6</dt>
+<dd>Uma mudança cosmética apenas: acrescentamos uma linha com apenas um print, para deixar na tela uma linha em branco entre as perguntas e os resultados.</dd>
+<dt>Linhas 7</dt>
+<dd>Agora podemos simplesmente somar os valores de ana e bia, que já foram convertidos para float nas linhas 4 e 5.</dd>
+<dt>Linhas 8 a 10</dt>
+<dd>Exibimos o total e processamos a média, como antes.</dd>
+<dt>Linha 11</dt>
+<dd>Apresentamos um novo comando de bloco, o comando <code class="docutils literal"><span class="pre">if</span></code>, que pode ser traduzido exatamente como &#8220;se&#8221;. Essa linha diz, literalmente: &#8220;se ana &lt; media:&#8221;. Ou seja, se o valor de Ana for menor que o valor da média, execute o bloco endentado a seguir (linhas 12 e 13). Caso contrário, não execute essas linhas, e passe direto para a linha 14.</dd>
+<dt>Linhas 12 e 13</dt>
+<dd>Calculamos e exibimos quanto Ana deve pagar.</dd>
+<dt>Linha 14</dt>
+<dd>Aqui vemos outro comando de bloco, o <code class="docutils literal"><span class="pre">else</span></code>, que pode ser traduzido como &#8220;senão&#8221;. O <code class="docutils literal"><span class="pre">else</span></code> só pode existir após um bloco iniciado por <code class="docutils literal"><span class="pre">if</span></code>. O bloco que segue o <code class="docutils literal"><span class="pre">else</span></code> só é executado quando a condição prevista no <code class="docutils literal"><span class="pre">if</span></code> não ocorre. Isso significa que, quando temos um bloco <code class="docutils literal"><span class="pre">if</span></code> e um bloco <code class="docutils literal"><span class="pre">else</span></code>, é garantido que apenas um dos dois será executado. Nesse caso, as linhas 15 e 16 só serão executadas se o valor de <code class="docutils literal"><span class="pre">ana</span></code> não for menor que a média.</dd>
+<dt>Linhas 15 e 16</dt>
+<dd>Calculamos e exibimos quanto Bia deve pagar.</dd>
+</dl>
+<p>Experimente um pouco com o programa <code class="docutils literal"><span class="pre">despdom2.py</span></code>. O que acontece quando os gastos de Ana e Bia são iguais? Tente responder essa pergunta sem rodar o programa. A chave está na linha 11. Qual é a média quando os gastos são iguais? Tente simular mentalmente o comportamento do computador na execução passo a passo do programa. Dedique alguns minutos a esse desafio, e só então rode o programa com valores iguais para ver se acontece o que você imaginou.</p>
+</div>
+<div class="section" id="tudo-sobre-o-if">
+<h2>Tudo sobre o <code class="docutils literal"><span class="pre">if</span></code><a class="headerlink" href="#tudo-sobre-o-if" title="Link permanente para este título">¶</a></h2>
+<p>O comando <code class="docutils literal"><span class="pre">if</span></code>, que acabamos de conhecer através de um exemplo, é uma peça fundamental da linguagem Python, e de quase todas as linguagens de programação existentes. Sua função é descrita como &#8220;comando de execução condicional de bloco&#8221;, ou seja, é um comando que determina a execução ou não de um bloco de comandos, de acordo com uma condição lógica. No exemplo, a condição lógica é <code class="docutils literal"><span class="pre">ana</span> <span class="pre">&lt;</span> <span class="pre">media</span></code>. O operador &lt; serve para comparar dois números e determinar se o primeiro é menor que o segundo (ele também funciona com &#8216;&#8217;strings&#8217;&#8216;, mas aí a comparação segue uma regra parecida com a ordem usada dos dicionários). Os operadores de comparação de Python são os mesmos usados em Java e C++:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="47%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operador</th>
+<th class="head">Descrição</th>
+<th class="head">Exemplo</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>==</td>
+<td>igual a</td>
+<td><code class="docutils literal"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>diferente de</td>
+<td><code class="docutils literal"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>menor que</td>
+<td><code class="docutils literal"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-odd"><td>&gt;</td>
+<td>maior que</td>
+<td><code class="docutils literal"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-even"><td>&gt;=</td>
+<td>maior ou igual a</td>
+<td><code class="docutils literal"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code></td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>menor ou igual a</td>
+<td><code class="docutils literal"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Para sentir o funcionamento desses operadores, abra o interpretador interativo do Python e digite esses testes (não vamos mostrar os resultados aqui; faça você mesmo).</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">==</span> <span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">!=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>As linhas 1 e 2 não produzem nenhum resultado, como já vimos antes. Elas apenas atribuem valor às variáveis a e b. A linha 3 parece um pouco com a linha 1, mas significa algo completamente diferente. Aqui não acontece nenhuma atribuição, apenas uma comparação, que vai gerar um resultado. Um erro bastante comum cometido por quem está aprendendo Python, C ou Java é usar = no lugar de == ao fazer uma comparação (em Basic, por exemplo, o = é usado nos dois casos). Após cada as linhas a partir da linha 3, o interpretador mostrará um número 1 ou 0, para indicar que a comparação é verdadeira (1) ou falsa (0).</p>
+<p>Voltando ao comando <code class="docutils literal"><span class="pre">if</span></code>, não existe nenhuma lei que obrigue a presença de um operador de comparação na condição do <code class="docutils literal"><span class="pre">if</span></code>. A única coisa que interessa é que a expressão que estiver no lugar da condição será considerada falsa se for igual a 0 (zero), uma &#8216;&#8217;string&#8217;&#8217; vazia, uma lista vazia ou o valor especial <code class="docutils literal"><span class="pre">None</span></code>, sobre o qual voltaremos a falar depois. Qualquer valor que não seja um desses será considerado &#8220;verdadeiro&#8221;, e provocará a execução do bloco subordinado ao <code class="docutils literal"><span class="pre">if</span></code>. É por isso que os operadores de comparação retornam 0 ou 1 para representar falso ou verdadeiro.</p>
+<p>Não é obrigatória a presença de um bloco <code class="docutils literal"><span class="pre">else</span></code> após um <code class="docutils literal"><span class="pre">if</span></code>. Mas um <code class="docutils literal"><span class="pre">else</span></code> só pode existir após um <code class="docutils literal"><span class="pre">if</span></code>. E um <code class="docutils literal"><span class="pre">if</span></code> pode conter, no máximo, um <code class="docutils literal"><span class="pre">else</span></code>. Existe um terceiro comando de bloco relacionado a esses, chamado <code class="docutils literal"><span class="pre">elif</span></code>. Ele corresponde à combinação <code class="docutils literal"><span class="pre">else-if</span></code> existente em outras linguagens. Assim como o <code class="docutils literal"><span class="pre">if</span></code>, cada <code class="docutils literal"><span class="pre">elif</span></code> deve ser acompanhado de uma condição que determinará a execução do bloco subordinado. Como todo comando de bloco, a primeira linha do <code class="docutils literal"><span class="pre">elif</span></code> deve ser terminada por um sinal de <code class="docutils literal"><span class="pre">:</span></code>.</p>
+<p>Um <code class="docutils literal"><span class="pre">if</span></code> pode ser seguido de qualquer quantidade de blocos <code class="docutils literal"><span class="pre">elif</span></code>, e se houver um bloco <code class="docutils literal"><span class="pre">else</span></code> ele deverá vir depois de todos os <code class="docutils literal"><span class="pre">elif</span></code>. Veja esse fragmento de código, parte de um jogo simples que criaremos no próximo capítulo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">vf</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Alunissagem perfeita!&#39;</span>
+<span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Alunissagem dentro do padrao.&#39;</span>
+<span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Alunissagem com avarias leves.&#39;</span>
+<span class="k">elif</span> <span class="n">vf</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Alunissagem com avarias severas.&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Modulo lunar destruido no impacto.&#39;</span>
+</pre></div>
+</div>
+<p>Numa sequencia de <code class="docutils literal"><span class="pre">if/elif/elif/.../else</span></code> é garantido que um, e apenas um dos blocos será executado. Fica como desafio para o leitor descobrir como usar o comando elif para corrigir o bug dos gastos iguais, que aparece no programa <code class="docutils literal"><span class="pre">despdom2.py</span></code>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabela de Conteúdo</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Capítulo 3: Do console para o editor de programas</a><ul>
+<li><a class="reference internal" href="#rodando-programas-no-idle">Rodando programas no IDLE</a></li>
+<li><a class="reference internal" href="#navegando-pela-linha-de-comando">Navegando pela linha de comando</a></li>
+<li><a class="reference internal" href="#testando-no-sistema">Testando no sistema</a></li>
+<li><a class="reference internal" href="#ascii-art">ASCII art</a></li>
+<li><a class="reference internal" href="#seu-primeiro-programa-interativo">Seu primeiro programa interativo</a></li>
+<li><a class="reference internal" href="#dissecando-o-codigo">Dissecando o código</a></li>
+<li><a class="reference internal" href="#um-programa-mais-esperto">Um programa mais esperto</a></li>
+<li><a class="reference internal" href="#tudo-sobre-o-if">Tudo sobre o <code class="docutils literal"><span class="pre">if</span></code></a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="cap2.html" title="capítulo anterior">Capítulo 2: Criando uma tabela</a></li>
+      <li>Next: <a href="cap4.html" title="próximo capítulo">Capítulo 4: Orçamentos, pousos lunares e tratamento de erros</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Essa Página</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cap3.rst.txt"
+            rel="nofollow">Exibir Fonte</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Busca rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Luciano Ramalho.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/cap3.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
