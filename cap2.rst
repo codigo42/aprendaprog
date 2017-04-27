@@ -5,7 +5,7 @@ Capítulo 2: Criando uma tabela
 No final do capítulo anterior digitamos o seguinte programa diretamente no interpretador Python::
 
     >>> d = 1.686
-    >>> for p in range(50,150): print p, p * d
+    >>> for p in range(50,150): print(p, p * d)
 
 O resultado desta seqüência de comandos é uma longa lista de números em duas colunas. Sabemos que a primeira coluna da esquerda contém preços em dólar e a outra, em reais. Mas nada na listagem indica isto. Observe esse trecho::
 
@@ -125,23 +125,23 @@ Agora vamos ver o que acontece quando chamamos a variável ``msg``::
     'um d\363lar vale %f real.'
     >>>
 
-Python representa varíaveis '``string``' dessa forma: entre aspas simples, e trocando os acentos por códigos especiais (estamos falando do código ASCII em notação octal, algo que explicaremos depois). Se você quiser exibir o conteúdo de ``msg`` de forma mais apresentável, use o comando ``print``::
+Python representa varíaveis '``string``' dessa forma: entre aspas simples, e trocando os acentos por códigos especiais (estamos falando do código ASCII em notação octal, algo que explicaremos depois). Se você quiser exibir o conteúdo de ``msg`` de forma mais apresentável, use a função ``print``::
 
-    >>> print msg
+    >>> print(msg)
     um dólar vale %f real.
     >>>
 
 OK, é hora de explicar porque colocamos esse estranho ``%f`` dentro da mensagem. Trata-se de um marcador de posição para sinalizar onde Python deverá inserir um número quando quisermos imprimir a mensagem com o valor da cotação. Experimente digitar o seguinte::
 
     >>> d = 1.902
-    >>> print msg % d
+    >>> print(msg % d)
     um dólar vale 1.902000 real.
     >>>
 
 Veja o que aconteceu: Python substituiu a marca ``%f`` pelo valor da variável ``d``. É assim que funciona: a partir de uma '``string``' com marcas de posição e um ou mais valores, o operador ``%`` produz uma nova '``string``' com os valores inseridos nas respectivas posições. Veja agora um exemplo com dois valores::
 
     >>> msg2 = 'Um dólar vale %f real e um real vale %f dólar.'
-    >>> print msg2 % (d, 1/d)
+    >>> print(msg2 % (d, 1/d))
     Um dólar vale 1.902000 real e um real vale 0.525762 dólar.
     >>>
 
@@ -156,7 +156,7 @@ O símbolo ``%f`` serve para informar a Python que o valor a ser inserido naquel
 
 Após o marcador ``%``, a indicação ``.2`` determina que devem aparecer duas casas decimais após o ponto. Note que o resultado é arredondado: ``1.685`` virou ``1.69``. Vamos usar esse recurso na nossa tabela::
 
-    >>> for p in range(4,16):  print 'US$ %.2f = R$ %.2f' % (p,p*d)
+    >>> for p in range(4,16):  print('US$ %.2f = R$ %.2f' % (p,p*d))
 
     US$ 4.00 = R$ 6.74
     US$ 5.00 = R$ 8.43
@@ -174,7 +174,7 @@ Após o marcador ``%``, a indicação ``.2`` determina que devem aparecer duas c
 
 Está quase linda. Falta só consertar o degrau que acontece entre a linha do 9 e do 10. No marcador de posição você também pode colocar um número à esquerda do ponto para definir a largura total do espaço que será reservado. Na faixa de preços de 4 a 15, os maiores valores tem cinco caracteres de comprimento (incluindo o ponto decimal), por isso vamos usar ``%5.2f``. Agora podemos fazer uma versão bem melhor da tabela::
 
-    >>> for p in range(4,16):  print 'US$ %5.2f = R$ %5.2f' % (p,p*d)
+    >>> for p in range(4,16):  print('US$ %5.2f = R$ %5.2f' % (p,p*d))
 
     US$  4.00 = R$  6.74
     US$  5.00 = R$  8.43
@@ -202,28 +202,28 @@ O comando ``for`` é algo que chamamos de "estrutura de controle", que serve par
 
     for ($i = 0; $i < 5; $i++) {  # Atenção: isto é Perl, e não Python.
         $v = $i * 3;
-        print "$v\n";
+        print("$v\n");
     }
 
-Aqui, os comandos ``$v = $i * 3;`` e ``print "$v\n";`` formam o bloco que está sobre o controle do comando ``for``, ou seja, os dois comandos serão executados repetidamente. O programa equivalente em Python é escrito assim::
+Aqui, os comandos ``$v = $i * 3;`` e ``print("$v\n");`` formam o bloco que está sobre o controle do comando ``for``, ou seja, os dois comandos serão executados repetidamente. O programa equivalente em Python é escrito assim::
 
     for i in range(5):
         v = i * 3
-        print v
+        print(v)
 
 Na minha opinião, o código em Python é bem mais legível. Para sinalizar quais comandos fazem parte do bloco que está sob o controle do ``for``, apenas a endentação é utilizada. Se você está usando o IDLE, esse recuo acontece automaticamente quando uma linha de comando termina com o sinal ':', que em Python sempre indica o início de um bloco. No interpretador Python invocado a partir da linha de comando no DOS ou em UNIX, a endentação não é automática. Você precisa digitar ao menos um espaço em branco para evitar uma mensagem de erro como essa::
 
     >>> for i in range(5):
-    ... print i
+    ... print(i)
       File "", line 2
-        print i
+        print(i)
             ^
     SyntaxError: invalid syntax
 
-Note que o interpretador está reclamando de sintaxe inválida, e apontando (^) para a primeira palavra do bloco que deveria estar recuado. Veja a mesma coisa, com a segunda linha recuada com a tecla [TAB]::
+Note que o interpretador está reclamando de sintaxe inválida, e apontando o sinal ``^`` para a primeira palavra do bloco que deveria estar recuado. Veja a mesma coisa, com a segunda linha recuada com a tecla [TAB]::
 
     >>> for i in range(5):
-    ...     print i
+    ...     print(i)
     ...
     0
     1
@@ -239,8 +239,8 @@ Agora que entendemos o conceito de bloco, podemos enfeitar ainda mais a nossa ta
 Veja este exemplo::
 
     >>> for p in range(9,13):
-    ...    print 'US$ %5.2f = R$ %5.2f' % (p, p * d)
-    ...    print '-' * 20
+    ...    print('US$ %5.2f = R$ %5.2f' % (p, p * d))
+    ...    print('-' * 20)
     ...
     US$  9.00 = R$ 15.17
     --------------------
