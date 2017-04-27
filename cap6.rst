@@ -16,7 +16,7 @@ O segundo pilar da Web é o HTTP, ou Hypertext Transport Protocol - protocolo de
 
 A relação entre um browser e um HTTPd é descrita pelos computólogos como "cliente-servidor". Isso significa que a interação entre esses dois softwares sempre parte do browser, que é o cliente. O servidor não tem nenhuma iniciativa, limitando-se a responder aos comandos enviados pelo cliente.
 
-Quando você digita uma URL como http://ramalho.pro.br/aprendaprog/index.html, o seu browser localiza e conecta-se ao servidor ramalho.pro.br e envia-lhe o comando ``GET /aprendaprog/index.html``. O servidor então lê o arquivo index.html da pasta aprendaprog, transmite seu conteúdo para o cliente e encerra a conexão. Esses são os passos básicos de qualquer interação de um browser com um HTTPd: conexão, solicitação, resposta e desconexão.
+Quando você digita uma URL como https://codigo42.github.io/aprendaprog/, o seu browser localiza e conecta-se ao servidor ``codigo42.github.io`` e envia-lhe o comando ``GET /aprendaprog/``. O servidor então lê o arquivo ``index.html`` da pasta ``aprendaprog``, transmite seu conteúdo para o cliente e encerra a conexão. Esses são os passos básicos de qualquer interação de um browser com um HTTPd: conexão, solicitação, resposta e desconexão.
 
 Páginas dinâmicas
 ==================
