@@ -1,34 +1,39 @@
 # coding: utf-8
 
 import random
+import math
 
 def pede_int(msg):
     while True:
+        resp = input(msg)
         try:
-            resp = raw_input(msg)
             resp = int(resp)
-        except:
-            print 'Digite apenas dígitos'
+        except ValueError:
+            print('Digite apenas dígitos')
         else:
             break
     return resp
 
 # programa principal
+maximo = 100
 
-print 'Chute um número de 1 a 10:'
+chances = math.ceil(math.log(maximo, 2))
+nosso_numero = random.randint(1, maximo)
 
-nosso_numero = random.randint(1, 10)
-tentativas = 4
+print('Chute um número de 1 a %s.' % maximo)
+print('Você tem %s chances de acertar.' % chances)
 
-while tentativas > 0:
-    resp = pede_int(':')
+chute = 1
+
+while chute <= chances:
+    resp = pede_int('[%d] ' % chute)
     if resp == nosso_numero:
-        print 'Acertou!'
+        print('Acertou!')
         break
     elif resp > nosso_numero:
-        print 'Muito alto...'
+        print('Muito alto...')
     else:
-        print 'Muito baixo...'
-    tentativas = tentativas - 1 
+        print('Muito baixo...')
+    chute += 1
 else:
-    print 'Game over'
+    print('Game over')

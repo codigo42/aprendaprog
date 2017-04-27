@@ -8,7 +8,7 @@ http://www.python.org.br/wiki/AprendaProgramar
 
 E agora atualizado e melhor formatado em:
 
-http://turing.com.br/aprendaprog/index.html
+https://codigo42.github.io/aprendaprog/
 
 O texto "Aprenda a Programar" de Luciano Ramalho é oferecido com uma
 Licença CC BY-NC-SA (Creative Commons - Atribuição - Uso Não Comercial -
