@@ -11,7 +11,7 @@ Antes de começar, apenas um aviso: o prazer de construir um programa pode causa
 Material necessário
 ====================
 
-Para acompanhar esse tutorial você precisará de um computador que tenha um interpretador da linguagem Python instalado. Em quase todas as versões modernas de Linux e MacOS X o interpretador Python já vem instalado (experimente abrir um terminal e digitar "python"). Nesse tutorial, vamos usar Python 3. Na página http://www.python.org/download/ você encontra links para baixar a versão mais recente do Python 3 para o seu computador. Em novembro de 2016 a versão mais recente é Python 3.5, mas qualquer versão da série 3.x deverá funcionar para você.
+Para acompanhar esse tutorial você precisará de um computador que tenha um interpretador da linguagem Python instalado. Em quase todas as versões modernas de Linux e MacOS X o interpretador Python já vem instalado (experimente abrir um terminal e digitar "python"). Nesse tutorial, vamos usar Python 3. Na página http://python.org.br você encontra links para baixar a versão mais recente do Python 3 para o seu computador. Você pode achar informações de como instalar no Windows:  http://python.org.br/instalacao-windows e no Linux: http://python.org.br/instalacao-linux. Em novembro de 2016 a versão mais recente é Python 3.5, mas qualquer versão da série 3.x deverá funcionar para você.
 
 Porquê Python
 ==============

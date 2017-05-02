@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Capítulo 2: Criando uma tabela &#8212; documentação Aprenda a Programar out</title>
+    <title>Capítulo 2: Criando uma tabela &#8212; documentação Aprenda a Programar 04</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'out',
+        VERSION:     '04',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -47,8 +47,8 @@
   <div class="section" id="capitulo-2-criando-uma-tabela">
 <h1>Capítulo 2: Criando uma tabela<a class="headerlink" href="#capitulo-2-criando-uma-tabela" title="Link permanente para este título">¶</a></h1>
 <p>No final do capítulo anterior digitamos o seguinte programa diretamente no interpretador Python:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.686</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.686</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">preço</span><span class="p">,</span> <span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>O resultado desta seqüência de comandos é uma longa lista de números em duas colunas. Sabemos que a primeira coluna da esquerda contém preços em dólar e a outra, em reais. Mas nada na listagem indica isto. Observe esse trecho:</p>
@@ -72,24 +72,24 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eu</span> <span class="o">=</span> <span class="s1">&#39;Fulano&#39;</span>
 </pre></div>
 </div>
-<p>Você tem que digitar as aspas para evitar um erro. As aspas podem ser &#8216;simples&#8217; ou &#8220;duplas&#8221;. Python guardará uma cópia do seu nome na memória do computador, e associará o identificador <code class="docutils literal"><span class="pre">eu</span></code> a esse dado. Agora basta digitar eu para ver o seu nome.</p>
+<p>Você tem que digitar as aspas para evitar um erro. As aspas podem ser <strong>&#8216;simples&#8217;</strong> ou <strong>&#8220;duplas&#8221;</strong>. Python guardará uma cópia do seu nome na memória do computador, e associará o identificador <code class="docutils literal"><span class="pre">eu</span></code> a esse dado. Agora basta digitar eu para ver o seu nome.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eu</span>
 <span class="go">&#39;Fulano&#39;</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Antes havíamos criado a variável <code class="docutils literal"><span class="pre">d</span></code> referindo-se à cotação do dólar, e no capítulo anterior também criamos uma variável chamada <code class="docutils literal"><span class="pre">lista</span></code>, contendo uma lista de valores. Agora criamos a variável <code class="docutils literal"><span class="pre">eu</span></code> para se referir ao seu nome. Estes são exemplos de três tipos de dados que Python é capaz de processar: número de ponto flutuante, lista de valores, e texto.</p>
+<p>Antes havíamos criado a variável <code class="docutils literal"><span class="pre">dollar</span></code> referindo-se à cotação do dólar, e no capítulo anterior também criamos uma variável chamada <code class="docutils literal"><span class="pre">lista</span></code>, contendo uma lista de valores. Agora criamos a variável <code class="docutils literal"><span class="pre">eu</span></code> para se referir ao seu nome. Estes são exemplos de três tipos de dados que Python é capaz de processar: número de ponto flutuante, lista de valores, e texto.</p>
 <p>Você pode saber o tipo de uma variável ou estrutura de dados usando a função <code class="docutils literal"><span class="pre">type</span></code>. Veja estes exemplos:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eu</span> <span class="o">=</span> <span class="s1">&#39;Luciano&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.902</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.902</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">eu</span><span class="p">)</span>
 <span class="go">&lt;type &#39;str&#39;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">dollar</span><span class="p">)</span>
 <span class="go">&lt;type &#39;float&#39;&gt;</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Python acaba de nos dizer que a variável <code class="docutils literal"><span class="pre">eu</span></code> refere-se a um objeto do tipo <code class="docutils literal"><span class="pre">str</span></code>, uma abreviatura de &#8220;string&#8221; (basicamente o computador encara um texto como uma cadeia de caracteres). E a variável <code class="docutils literal"><span class="pre">d</span></code> aponta para um objeto do tipo <code class="docutils literal"><span class="pre">float</span></code>, ou &#8220;número de ponto-flutuante&#8221;, como já vimos antes.</p>
+<p>Python acaba de nos dizer que a variável <code class="docutils literal"><span class="pre">eu</span></code> refere-se a um objeto do tipo <code class="docutils literal"><span class="pre">str</span></code>, uma abreviatura de &#8220;string&#8221; (basicamente o computador encara um texto como uma cadeia de caracteres). E a variável <code class="docutils literal"><span class="pre">dollar</span></code> aponta para um objeto do tipo <code class="docutils literal"><span class="pre">float</span></code>, ou &#8220;número de ponto-flutuante&#8221;, como já vimos antes.</p>
 <p>Vejamos mais alguns tipos de dados:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">&lt;type &#39;int&#39;&gt;</span>
@@ -124,7 +124,7 @@
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Por exemplo, o operador + realiza uma soma quando aplicado a dados numéricos, mas quando aplicado a dados do tipo &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216;, o sinal <code class="docutils literal"><span class="pre">+</span></code> faz uma operação de concatenação (junção de duas seqüências). Agora experimente isto:</p>
+<p>Por exemplo, o operador + realiza uma soma quando aplicado a dados numéricos, mas quando aplicado a dados do tipo <code class="docutils literal"><span class="pre">string</span></code>, o sinal <code class="docutils literal"><span class="pre">+</span></code> faz uma operação de concatenação (junção de duas seqüências). Agora experimente isto:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">*</span> <span class="mi">5</span>
 <span class="go">15.0</span>
@@ -133,7 +133,7 @@
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Note que x e &#8216;x&#8217; são coisas totalmente diferentes. x é o nome de uma variável que neste momento se refere ao valor <code class="docutils literal"><span class="pre">3.</span></code> (um &#8216;<code class="docutils literal"><span class="pre">float</span></code>&#8216;). O resultado de <code class="docutils literal"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">5</span></code> é <code class="docutils literal"><span class="pre">15.0</span></code> (outro &#8216;<code class="docutils literal"><span class="pre">float</span></code>&#8216;, como era de se esperar). Já <code class="docutils literal"><span class="pre">x</span></code> é uma &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; com um caractere. Quando o sinal <code class="docutils literal"><span class="pre">*</span></code> é aplicado entre uma &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; e um número inteiro, Python realiza uma operação de repetição. Como você pode notar, os operadores <code class="docutils literal"><span class="pre">+</span></code> e <code class="docutils literal"><span class="pre">*</span></code> fazem coisas diferentes dependendo dos tipos de dados fornecidos na expressão.</p>
+<p>Note que x e &#8216;x&#8217; são coisas totalmente diferentes. x é o nome de uma variável que neste momento se refere ao valor <code class="docutils literal"><span class="pre">3.</span></code> (um <code class="docutils literal"><span class="pre">float</span></code>). O resultado de <code class="docutils literal"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">5</span></code> é <code class="docutils literal"><span class="pre">15.0</span></code> (outro <code class="docutils literal"><span class="pre">float</span></code>, como era de se esperar). Já &#8216;x&#8217; é uma <code class="docutils literal"><span class="pre">string</span></code> com um caractere. Quando o sinal <code class="docutils literal"><span class="pre">*</span></code> é aplicado entre uma <code class="docutils literal"><span class="pre">string</span></code> e um número inteiro, Python realiza uma operação de repetição. Como você pode notar, os operadores <code class="docutils literal"><span class="pre">+</span></code> e <code class="docutils literal"><span class="pre">*</span></code> fazem coisas diferentes dependendo dos tipos de dados fornecidos na expressão.</p>
 <p>É um prazer trabalhar com Python porque é uma linguagem muito coerente. Observe:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="go">[1, 2, 3, 4]</span>
@@ -144,51 +144,45 @@
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>No primeiro exemplo, vemos o operador <code class="docutils literal"><span class="pre">+</span></code> concatenando duas listas. Os outros dois exemplos mostram a operação de repetição. Note que <code class="docutils literal"><span class="pre">12</span></code> não é um número, mas uma &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; composta pelos caracteres <code class="docutils literal"><span class="pre">1</span></code> e <code class="docutils literal"><span class="pre">2</span></code>. Para Python, &#8216;<code class="docutils literal"><span class="pre">strings</span></code>&#8216; e listas têm muito em comum: ambas são seqüências de itens. Enquanto &#8216;<code class="docutils literal"><span class="pre">strings</span></code>&#8216; são seqüências de caracteres, listas são seqüências de itens quaisquer. Nos dois casos, concatenação e repetição funcionam de forma logicamente idêntica.</p>
+<p>No primeiro exemplo, vemos o operador <code class="docutils literal"><span class="pre">+</span></code> concatenando duas listas. Os outros dois exemplos mostram a operação de repetição. Note que <code class="docutils literal"><span class="pre">12</span></code> não é um número, mas uma <code class="docutils literal"><span class="pre">string</span></code> composta pelos caracteres <code class="docutils literal"><span class="pre">1</span></code> e <code class="docutils literal"><span class="pre">2</span></code>. Para Python, <code class="docutils literal"><span class="pre">strings</span></code> e listas têm muito em comum: ambas são seqüências de itens. Enquanto <code class="docutils literal"><span class="pre">strings</span></code> são seqüências de caracteres, listas são seqüências de itens quaisquer. Nos dois casos, concatenação e repetição funcionam de forma logicamente idêntica.</p>
 </div>
 <div class="section" id="enfeitando-a-tabela">
 <h2>Enfeitando a tabela<a class="headerlink" href="#enfeitando-a-tabela" title="Link permanente para este título">¶</a></h2>
-<p>Agora que sabemos sobre alguns tipos de dados, e que os operadores funcionam de forma diferente conforme os dados da expressão, estamos prontos para aperfeiçoar nosso gerador de tabelas usando o poderoso operador &#8216;%&#8217;, que em Python não tem nada a ver com porcentagens. Para ver como ele funciona, vamos criar uma &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; como esta:</p>
+<p>Agora que sabemos sobre alguns tipos de dados, e que os operadores funcionam de forma diferente conforme os dados da expressão, estamos prontos para aperfeiçoar nosso gerador de tabelas usando o poderoso operador &#8216;%&#8217;, que em Python não tem nada a ver com porcentagens. Para ver como ele funciona, vamos criar uma <code class="docutils literal"><span class="pre">string</span></code> como esta:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;um dólar vale </span><span class="si">%f</span><span class="s1"> real.&#39;</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>Agora vamos ver o que acontece quando chamamos a variável <code class="docutils literal"><span class="pre">msg</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span>
-<span class="go">&#39;um d\363lar vale %f real.&#39;</span>
-<span class="go">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
-<p>Python representa varíaveis &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; dessa forma: entre aspas simples, e trocando os acentos por códigos especiais (estamos falando do código ASCII em notação octal, algo que explicaremos depois). Se você quiser exibir o conteúdo de <code class="docutils literal"><span class="pre">msg</span></code> de forma mais apresentável, use a função <code class="docutils literal"><span class="pre">print</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="go">um dólar vale %f real.</span>
+<span class="go">&#39;um dólar vale %f real.&#39;</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>OK, é hora de explicar porque colocamos esse estranho <code class="docutils literal"><span class="pre">%f</span></code> dentro da mensagem. Trata-se de um marcador de posição para sinalizar onde Python deverá inserir um número quando quisermos imprimir a mensagem com o valor da cotação. Experimente digitar o seguinte:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.902</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.902</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="n">dollar</span><span class="p">)</span>
 <span class="go">um dólar vale 1.902000 real.</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Veja o que aconteceu: Python substituiu a marca <code class="docutils literal"><span class="pre">%f</span></code> pelo valor da variável <code class="docutils literal"><span class="pre">d</span></code>. É assim que funciona: a partir de uma &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; com marcas de posição e um ou mais valores, o operador <code class="docutils literal"><span class="pre">%</span></code> produz uma nova &#8216;<code class="docutils literal"><span class="pre">string</span></code>&#8216; com os valores inseridos nas respectivas posições. Veja agora um exemplo com dois valores:</p>
+<p>Veja o que aconteceu: Python substituiu a marca <code class="docutils literal"><span class="pre">%f</span></code> pelo valor da variável <code class="docutils literal"><span class="pre">dollar</span></code>. É assim que funciona: a partir de uma <code class="docutils literal"><span class="pre">string</span></code> com marcas de posição e um ou mais valores, o operador <code class="docutils literal"><span class="pre">%</span></code> produz uma nova <code class="docutils literal"><span class="pre">string</span></code> com os valores inseridos nas respectivas posições. Veja agora um exemplo com dois valores:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg2</span> <span class="o">=</span> <span class="s1">&#39;Um dólar vale </span><span class="si">%f</span><span class="s1"> real e um real vale </span><span class="si">%f</span><span class="s1"> dólar.&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg2</span> <span class="o">%</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">d</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">msg2</span> <span class="o">%</span> <span class="p">(</span><span class="n">dollar</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">dollar</span><span class="p">))</span>
 <span class="go">Um dólar vale 1.902000 real e um real vale 0.525762 dólar.</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>Note que os valores <code class="docutils literal"><span class="pre">d</span></code> e <code class="docutils literal"><span class="pre">1/d</span></code> estão entre parênteses. Isso é obrigatório quando queremos passar mais de um valor para o operador <code class="docutils literal"><span class="pre">%</span></code> (uma sequência de valores entre parênteses é uma &#8220;tupla&#8221;, um tipo especial de sequência que explicaremos em um outro capítulo).</p>
-<p>O símbolo <code class="docutils literal"><span class="pre">%f</span></code> serve para informar a Python que o valor a ser inserido naquela posição é um &#8216;<code class="docutils literal"><span class="pre">float</span></code>&#8216;. Se você quiser limitar o número de casas após o ponto decimal, basta usar um formato como esse:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.685</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">d</span>
+<p>Note que os valores <code class="docutils literal"><span class="pre">dollar</span></code> e <code class="docutils literal"><span class="pre">1/dollar</span></code> estão entre parênteses. Isso é obrigatório quando queremos passar mais de um valor para o operador <code class="docutils literal"><span class="pre">%</span></code> (uma sequência de valores entre parênteses é uma &#8220;tupla&#8221;, um tipo especial de sequência que explicaremos em um outro capítulo).</p>
+<p>O símbolo <code class="docutils literal"><span class="pre">%f</span></code> serve para informar a Python que o valor a ser inserido naquela posição é um <code class="docutils literal"><span class="pre">float</span></code>. Se você quiser limitar o número de casas após o ponto decimal, basta usar um formato como esse:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.685</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">dollar</span>
 <span class="go">&#39;1.69&#39;</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>Após o marcador <code class="docutils literal"><span class="pre">%</span></code>, a indicação <code class="docutils literal"><span class="pre">.2</span></code> determina que devem aparecer duas casas decimais após o ponto. Note que o resultado é arredondado: <code class="docutils literal"><span class="pre">1.685</span></code> virou <code class="docutils literal"><span class="pre">1.69</span></code>. Vamos usar esse recurso na nossa tabela:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%.2f</span><span class="s1"> = R$ </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%.2f</span><span class="s1"> = R$ </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">preço</span><span class="p">,</span> <span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">))</span>
 
 <span class="go">US$ 4.00 = R$ 6.74</span>
 <span class="go">US$ 5.00 = R$ 8.43</span>
@@ -206,7 +200,7 @@
 </pre></div>
 </div>
 <p>Está quase linda. Falta só consertar o degrau que acontece entre a linha do 9 e do 10. No marcador de posição você também pode colocar um número à esquerda do ponto para definir a largura total do espaço que será reservado. Na faixa de preços de 4 a 15, os maiores valores tem cinco caracteres de comprimento (incluindo o ponto decimal), por isso vamos usar <code class="docutils literal"><span class="pre">%5.2f</span></code>. Agora podemos fazer uma versão bem melhor da tabela:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">preço</span><span class="p">,</span> <span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">))</span>
 
 <span class="go">US$  4.00 = R$  6.74</span>
 <span class="go">US$  5.00 = R$  8.43</span>
@@ -243,10 +237,10 @@
 <p>Na minha opinião, o código em Python é bem mais legível. Para sinalizar quais comandos fazem parte do bloco que está sob o controle do <code class="docutils literal"><span class="pre">for</span></code>, apenas a endentação é utilizada. Se você está usando o IDLE, esse recuo acontece automaticamente quando uma linha de comando termina com o sinal &#8216;:&#8217;, que em Python sempre indica o início de um bloco. No interpretador Python invocado a partir da linha de comando no DOS ou em UNIX, a endentação não é automática. Você precisa digitar ao menos um espaço em branco para evitar uma mensagem de erro como essa:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span><span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="go">  File &quot;&quot;, line 2</span>
-<span class="go">    print(i)</span>
-<span class="go">        ^</span>
-<span class="go">SyntaxError: invalid syntax</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="o">^</span>
+<span class="gr">IndentationError</span>: <span class="n">expected an indented block</span>
 </pre></div>
 </div>
 <p>Note que o interpretador está reclamando de sintaxe inválida, e apontando o sinal <code class="docutils literal"><span class="pre">^</span></code> para a primeira palavra do bloco que deveria estar recuado. Veja a mesma coisa, com a segunda linha recuada com a tecla [TAB]:</p>
@@ -265,7 +259,7 @@
 <p>Agora que entendemos o conceito de bloco, podemos enfeitar ainda mais a nossa tabela colocando um segundo comando <code class="docutils literal"><span class="pre">print</span></code> dentro do nosso <code class="docutils literal"><span class="pre">for</span></code>.</p>
 <p>Veja este exemplo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">))</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;US$ </span><span class="si">%5.2f</span><span class="s1"> = R$ </span><span class="si">%5.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">))</span>
 <span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">US$  9.00 = R$ 15.17</span>
@@ -346,7 +340,7 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Luciano Ramalho.
+      &copy;2017, Luciano Ramalho.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>

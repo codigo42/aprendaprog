@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Capítulo 6: Perca o medo do servidor Apache e do protocolo CGI &#8212; documentação Aprenda a Programar out</title>
+    <title>Capítulo 6: Perca o medo do servidor Apache e do protocolo CGI &#8212; documentação Aprenda a Programar 04</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'out',
+        VERSION:     '04',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -51,7 +51,7 @@ Quem é quem do HTTP</p>
 <p>O segundo pilar da Web é o HTTP, ou Hypertext Transport Protocol - protocolo de transporte de hipertexto. Esse é o conjunto de comandos e regras que define como deve ser a comunicação entre um browser (como o Internet Explorer ou o Mozilla) e um servidor HTTP (como o Apache ou o Interner Information Server). A expressão &#8220;servidor HTTP&#8221; pode significar duas coisas: o software que serve páginas via HTTP, ou o computador onde esse software está instalado. No mundo Unix, softwares servidores são chamados de &#8220;daemons&#8221;, e a sigla HTTPd descreve um &#8220;HTTP daemon&#8221; genérico. Essa é a sigla que vamos usar para diferenciar o software do hardware.</p>
 <img alt="_images/img_06_01.png" src="_images/img_06_01.png" />
 <p>A relação entre um browser e um HTTPd é descrita pelos computólogos como &#8220;cliente-servidor&#8221;. Isso significa que a interação entre esses dois softwares sempre parte do browser, que é o cliente. O servidor não tem nenhuma iniciativa, limitando-se a responder aos comandos enviados pelo cliente.</p>
-<p>Quando você digita uma URL como <a class="reference external" href="http://ramalho.pro.br/aprendaprog/index.html">http://ramalho.pro.br/aprendaprog/index.html</a>, o seu browser localiza e conecta-se ao servidor ramalho.pro.br e envia-lhe o comando <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/aprendaprog/index.html</span></code>. O servidor então lê o arquivo index.html da pasta aprendaprog, transmite seu conteúdo para o cliente e encerra a conexão. Esses são os passos básicos de qualquer interação de um browser com um HTTPd: conexão, solicitação, resposta e desconexão.</p>
+<p>Quando você digita uma URL como <a class="reference external" href="https://codigo42.github.io/aprendaprog/">https://codigo42.github.io/aprendaprog/</a>, o seu browser localiza e conecta-se ao servidor <code class="docutils literal"><span class="pre">codigo42.github.io</span></code> e envia-lhe o comando <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/aprendaprog/</span></code>. O servidor então lê o arquivo <code class="docutils literal"><span class="pre">index.html</span></code> da pasta <code class="docutils literal"><span class="pre">aprendaprog</span></code>, transmite seu conteúdo para o cliente e encerra a conexão. Esses são os passos básicos de qualquer interação de um browser com um HTTPd: conexão, solicitação, resposta e desconexão.</p>
 <div class="section" id="paginas-dinamicas">
 <h2>Páginas dinâmicas<a class="headerlink" href="#paginas-dinamicas" title="Link permanente para este título">¶</a></h2>
 <p>No exemplo que acabamos de ver, <code class="docutils literal"><span class="pre">index.html</span></code> é o que chamamos de uma página estática. A resposta do servidor consiste apenas em enviar uma cópia do documento para o cliente. Sites que incluem transações (como lojas virtuais), interatividade (como chats), ou atualizações muito freqüentes (como este) utilizam páginas dinâmicas. Neste caso, ao receber a URL <a class="reference external" href="http://www.magnet.com.br/">http://www.magnet.com.br/</a> index_html, nosso servidor HTTPd Apache passa a solicitação para o aplicativo Zope, instalado no servidor. O Zope monta imediatamente a página <code class="docutils literal"><span class="pre">index_html</span></code> listando as notícias mais recentes de nosso banco de dados, a hora atual e outros elementos. A página recém montada então é passada para o Apache, que finalmente a transmite para o seu navegador.</p>
@@ -564,7 +564,7 @@ Quem é quem do HTTP</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Luciano Ramalho.
+      &copy;2017, Luciano Ramalho.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>

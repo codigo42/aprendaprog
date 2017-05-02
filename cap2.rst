@@ -4,8 +4,8 @@ Capítulo 2: Criando uma tabela
 
 No final do capítulo anterior digitamos o seguinte programa diretamente no interpretador Python::
 
-    >>> d = 1.686
-    >>> for p in range(50,150): print(p, p * d)
+    >>> dollar = 1.686
+    >>> for preço in range(50,150): print(preço, preço * dollar)
 
 O resultado desta seqüência de comandos é uma longa lista de números em duas colunas. Sabemos que a primeira coluna da esquerda contém preços em dólar e a outra, em reais. Mas nada na listagem indica isto. Observe esse trecho::
 
@@ -30,7 +30,7 @@ Para evitar aquele degrau na segunda coluna entre o 99 e o 100, precisamos fazer
 
     >>> eu = 'Fulano'
 
-Você tem que digitar as aspas para evitar um erro. As aspas podem ser 'simples' ou "duplas". Python guardará uma cópia do seu nome na memória do computador, e associará o identificador ``eu`` a esse dado. Agora basta digitar eu para ver o seu nome.
+Você tem que digitar as aspas para evitar um erro. As aspas podem ser **'simples'** ou **"duplas"**. Python guardará uma cópia do seu nome na memória do computador, e associará o identificador ``eu`` a esse dado. Agora basta digitar eu para ver o seu nome.
 
 ::
 
@@ -38,19 +38,19 @@ Você tem que digitar as aspas para evitar um erro. As aspas podem ser 'simples'
     'Fulano'
     >>>
 
-Antes havíamos criado a variável ``d`` referindo-se à cotação do dólar, e no capítulo anterior também criamos uma variável chamada ``lista``, contendo uma lista de valores. Agora criamos a variável ``eu`` para se referir ao seu nome. Estes são exemplos de três tipos de dados que Python é capaz de processar: número de ponto flutuante, lista de valores, e texto.
+Antes havíamos criado a variável ``dollar`` referindo-se à cotação do dólar, e no capítulo anterior também criamos uma variável chamada ``lista``, contendo uma lista de valores. Agora criamos a variável ``eu`` para se referir ao seu nome. Estes são exemplos de três tipos de dados que Python é capaz de processar: número de ponto flutuante, lista de valores, e texto.
 
 Você pode saber o tipo de uma variável ou estrutura de dados usando a função ``type``. Veja estes exemplos::
 
     >>> eu = 'Luciano'
-    >>> d = 1.902
+    >>> dollar = 1.902
     >>> type(eu)
     <type 'str'>
-    >>> type(d)
+    >>> type(dollar)
     <type 'float'>
     >>>
 
-Python acaba de nos dizer que a variável ``eu`` refere-se a um objeto do tipo ``str``, uma abreviatura de "string" (basicamente o computador encara um texto como uma cadeia de caracteres). E a variável ``d`` aponta para um objeto do tipo ``float``, ou "número de ponto-flutuante", como já vimos antes.
+Python acaba de nos dizer que a variável ``eu`` refere-se a um objeto do tipo ``str``, uma abreviatura de "string" (basicamente o computador encara um texto como uma cadeia de caracteres). E a variável ``dollar`` aponta para um objeto do tipo ``float``, ou "número de ponto-flutuante", como já vimos antes.
 
 Vejamos mais alguns tipos de dados::
 
@@ -88,7 +88,7 @@ Cada tipo de dados suporta operações diferentes. Faça algumas experiências e
     'bananaabacate'
     >>>
 
-Por exemplo, o operador + realiza uma soma quando aplicado a dados numéricos, mas quando aplicado a dados do tipo '``string``', o sinal ``+`` faz uma operação de concatenação (junção de duas seqüências). Agora experimente isto::
+Por exemplo, o operador + realiza uma soma quando aplicado a dados numéricos, mas quando aplicado a dados do tipo ``string``, o sinal ``+`` faz uma operação de concatenação (junção de duas seqüências). Agora experimente isto::
 
     >>> x = 3.
     >>> x * 5
@@ -97,7 +97,7 @@ Por exemplo, o operador + realiza uma soma quando aplicado a dados numéricos, m
     'xxxxx'
     >>>
 
-Note que x e 'x' são coisas totalmente diferentes. x é o nome de uma variável que neste momento se refere ao valor ``3.`` (um '``float``'). O resultado de ``x * 5`` é ``15.0`` (outro '``float``', como era de se esperar). Já ``x`` é uma '``string``' com um caractere. Quando o sinal ``*`` é aplicado entre uma '``string``' e um número inteiro, Python realiza uma operação de repetição. Como você pode notar, os operadores ``+`` e ``*`` fazem coisas diferentes dependendo dos tipos de dados fornecidos na expressão.
+Note que x e 'x' são coisas totalmente diferentes. x é o nome de uma variável que neste momento se refere ao valor ``3.`` (um ``float``). O resultado de ``x * 5`` é ``15.0`` (outro ``float``, como era de se esperar). Já 'x' é uma ``string`` com um caractere. Quando o sinal ``*`` é aplicado entre uma ``string`` e um número inteiro, Python realiza uma operação de repetição. Como você pode notar, os operadores ``+`` e ``*`` fazem coisas diferentes dependendo dos tipos de dados fornecidos na expressão.
 
 É um prazer trabalhar com Python porque é uma linguagem muito coerente. Observe::
 
@@ -109,12 +109,12 @@ Note que x e 'x' são coisas totalmente diferentes. x é o nome de uma variável
     [1, 2, 1, 2, 1, 2]
     >>>
 
-No primeiro exemplo, vemos o operador ``+`` concatenando duas listas. Os outros dois exemplos mostram a operação de repetição. Note que ``12`` não é um número, mas uma '``string``' composta pelos caracteres ``1`` e ``2``. Para Python, '``strings``' e listas têm muito em comum: ambas são seqüências de itens. Enquanto '``strings``' são seqüências de caracteres, listas são seqüências de itens quaisquer. Nos dois casos, concatenação e repetição funcionam de forma logicamente idêntica.
+No primeiro exemplo, vemos o operador ``+`` concatenando duas listas. Os outros dois exemplos mostram a operação de repetição. Note que ``12`` não é um número, mas uma ``string`` composta pelos caracteres ``1`` e ``2``. Para Python, ``strings`` e listas têm muito em comum: ambas são seqüências de itens. Enquanto ``strings`` são seqüências de caracteres, listas são seqüências de itens quaisquer. Nos dois casos, concatenação e repetição funcionam de forma logicamente idêntica.
 
 Enfeitando a tabela
 ====================
 
-Agora que sabemos sobre alguns tipos de dados, e que os operadores funcionam de forma diferente conforme os dados da expressão, estamos prontos para aperfeiçoar nosso gerador de tabelas usando o poderoso operador '%', que em Python não tem nada a ver com porcentagens. Para ver como ele funciona, vamos criar uma '``string``' como esta::
+Agora que sabemos sobre alguns tipos de dados, e que os operadores funcionam de forma diferente conforme os dados da expressão, estamos prontos para aperfeiçoar nosso gerador de tabelas usando o poderoso operador '%', que em Python não tem nada a ver com porcentagens. Para ver como ele funciona, vamos criar uma ``string`` como esta::
 
     >>> msg = 'um dólar vale %f real.'
     >>>
@@ -122,41 +122,35 @@ Agora que sabemos sobre alguns tipos de dados, e que os operadores funcionam de 
 Agora vamos ver o que acontece quando chamamos a variável ``msg``::
 
     >>> msg
-    'um d\363lar vale %f real.'
-    >>>
-
-Python representa varíaveis '``string``' dessa forma: entre aspas simples, e trocando os acentos por códigos especiais (estamos falando do código ASCII em notação octal, algo que explicaremos depois). Se você quiser exibir o conteúdo de ``msg`` de forma mais apresentável, use a função ``print``::
-
-    >>> print(msg)
-    um dólar vale %f real.
+    'um dólar vale %f real.'
     >>>
 
 OK, é hora de explicar porque colocamos esse estranho ``%f`` dentro da mensagem. Trata-se de um marcador de posição para sinalizar onde Python deverá inserir um número quando quisermos imprimir a mensagem com o valor da cotação. Experimente digitar o seguinte::
 
-    >>> d = 1.902
-    >>> print(msg % d)
+    >>> dollar = 1.902
+    >>> print(msg % dollar)
     um dólar vale 1.902000 real.
     >>>
 
-Veja o que aconteceu: Python substituiu a marca ``%f`` pelo valor da variável ``d``. É assim que funciona: a partir de uma '``string``' com marcas de posição e um ou mais valores, o operador ``%`` produz uma nova '``string``' com os valores inseridos nas respectivas posições. Veja agora um exemplo com dois valores::
+Veja o que aconteceu: Python substituiu a marca ``%f`` pelo valor da variável ``dollar``. É assim que funciona: a partir de uma ``string`` com marcas de posição e um ou mais valores, o operador ``%`` produz uma nova ``string`` com os valores inseridos nas respectivas posições. Veja agora um exemplo com dois valores::
 
     >>> msg2 = 'Um dólar vale %f real e um real vale %f dólar.'
-    >>> print(msg2 % (d, 1/d))
+    >>> print(msg2 % (dollar, 1/dollar))
     Um dólar vale 1.902000 real e um real vale 0.525762 dólar.
     >>>
 
-Note que os valores ``d`` e ``1/d`` estão entre parênteses. Isso é obrigatório quando queremos passar mais de um valor para o operador ``%`` (uma sequência de valores entre parênteses é uma "tupla", um tipo especial de sequência que explicaremos em um outro capítulo).
+Note que os valores ``dollar`` e ``1/dollar`` estão entre parênteses. Isso é obrigatório quando queremos passar mais de um valor para o operador ``%`` (uma sequência de valores entre parênteses é uma "tupla", um tipo especial de sequência que explicaremos em um outro capítulo).
 
-O símbolo ``%f`` serve para informar a Python que o valor a ser inserido naquela posição é um '``float``'. Se você quiser limitar o número de casas após o ponto decimal, basta usar um formato como esse::
+O símbolo ``%f`` serve para informar a Python que o valor a ser inserido naquela posição é um ``float``. Se você quiser limitar o número de casas após o ponto decimal, basta usar um formato como esse::
 
-    >>> d = 1.685
-    >>> '%.2f' % d
+    >>> dollar = 1.685
+    >>> '%.2f' % dollar
     '1.69'
     >>>
 
 Após o marcador ``%``, a indicação ``.2`` determina que devem aparecer duas casas decimais após o ponto. Note que o resultado é arredondado: ``1.685`` virou ``1.69``. Vamos usar esse recurso na nossa tabela::
 
-    >>> for p in range(4,16):  print('US$ %.2f = R$ %.2f' % (p,p*d))
+    >>> for preço in range(4,16):  print('US$ %.2f = R$ %.2f' % (preço, preço * dollar))
 
     US$ 4.00 = R$ 6.74
     US$ 5.00 = R$ 8.43
@@ -174,7 +168,7 @@ Após o marcador ``%``, a indicação ``.2`` determina que devem aparecer duas c
 
 Está quase linda. Falta só consertar o degrau que acontece entre a linha do 9 e do 10. No marcador de posição você também pode colocar um número à esquerda do ponto para definir a largura total do espaço que será reservado. Na faixa de preços de 4 a 15, os maiores valores tem cinco caracteres de comprimento (incluindo o ponto decimal), por isso vamos usar ``%5.2f``. Agora podemos fazer uma versão bem melhor da tabela::
 
-    >>> for p in range(4,16):  print('US$ %5.2f = R$ %5.2f' % (p,p*d))
+    >>> for preço in range(4,16):  print('US$ %5.2f = R$ %5.2f' % (preço, preço * dollar))
 
     US$  4.00 = R$  6.74
     US$  5.00 = R$  8.43
@@ -215,10 +209,10 @@ Na minha opinião, o código em Python é bem mais legível. Para sinalizar quai
 
     >>> for i in range(5):
     ... print(i)
-      File "", line 2
+      File "<stdin>", line 2
         print(i)
             ^
-    SyntaxError: invalid syntax
+    IndentationError: expected an indented block
 
 Note que o interpretador está reclamando de sintaxe inválida, e apontando o sinal ``^`` para a primeira palavra do bloco que deveria estar recuado. Veja a mesma coisa, com a segunda linha recuada com a tecla [TAB]::
 
@@ -239,7 +233,7 @@ Agora que entendemos o conceito de bloco, podemos enfeitar ainda mais a nossa ta
 Veja este exemplo::
 
     >>> for p in range(9,13):
-    ...    print('US$ %5.2f = R$ %5.2f' % (p, p * d))
+    ...    print('US$ %5.2f = R$ %5.2f' % (p, p * dollar))
     ...    print('-' * 20)
     ...
     US$  9.00 = R$ 15.17

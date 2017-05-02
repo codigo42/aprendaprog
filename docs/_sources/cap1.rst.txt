@@ -8,7 +8,7 @@ A melhor forma de aprender a programar é usando o console de um interpretador e
 
 2. usar o IDLE, que é um ambiente baseado em janelas.
 
-..todo:: Jupyter é a terceira maneira; talvez Jupyter na nuvem.
+.. :: Jupyter é a terceira maneira; talvez Jupyter na nuvem.
 
 Se você usa Windows, escolha o IDLE para começar a acompanhar esse tutorial. O IDLE também está disponível para a plataforma Linux (algumas distribuições colocam o IDLE em um pacote separado do pacote do Python).
 
@@ -66,7 +66,7 @@ Ao contrário do que você aprendeu na escola, aqui os símbolos [] e {} não se
     >>> ( 9 - ( 1 + 2 ) ) / 3.0
     2.0
     >>> ( 9 - 1 + 2 ) / 3.0
-    3.33333333333
+    3.3333333333333335
     >>>
 
 .. note::  Dica
@@ -96,7 +96,7 @@ Ao contrário do que você aprendeu na escola, aqui os símbolos [] e {} não se
     >>> 1.5/0
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    ZeroDivisionError: float division
+    ZeroDivisionError: float division by zero
     >>>
 
   Novamente, a parte mais importante é a última linha, que nesse caso é bem fácil de entender: ``ZeroDivisionError: float division``, ou "erro de divisão por zero em divisão de ponto-flutuante".
@@ -114,29 +114,29 @@ Digamos que você tem uma loja de trecos importados, e precisa constantemente co
 
 Mas há uma forma melhor: em vez de digitar o valor 1.686 o tempo todo, você pode armazenar esse valor na memória do computador, assim::
 
-    >>> d = 1.686
+    >>> dollar = 1.686
     >>>
 
 Note que o interpretador não respondeu nada (a menos que você tenha cometido um erro), mas ele guardou o número em uma posição de sua memória, e associou o símbolo ``d`` a essa posição. Agora, fica mais confortável converter dólares em reais::
 
-    >>> 9.85 * d
+    >>> 9.85 * dollar
     16.607099999999999
-    >>> 11.95 * d
+    >>> 11.95 * dollar
     20.147699999999997
-    >>> 5 * d, 7 * d, 9 * d
+    >>> 5 * dollar, 7 * dollar, 9 * dollar
     (8.4299999999999997, 11.802, 15.173999999999999)
     >>>
 
 No último caso, convertemos de uma vez só os valores 5, 7 e 9 em dólares. Para um resultado mais apresentável, use a função ``print``::
 
-    >>> print(5 * d, 7 * d, 9 * d)
+    >>> print(5 * dollar, 7 * dollar, 9 * dollar)
     8.43 11.802 15.174
     >>>
 
 E se a cotação do dólar mudou para 1.61? Basta armazenar o novo número e refazer os cálculos::
 
-    >>> d = 1.61
-    >>> print(5 * d, 7 * d, 9 * d)
+    >>> dollar = 1.61
+    >>> print(5 * dollar, 7 * dollar, 9 * dollar)
     8.05 11.27 14.49
     >>>
 
@@ -147,7 +147,7 @@ Tabela de preços em dólares e reais
 
 Agora vamos mostrar como o interpretador Python é muito mais poderoso que uma calculadora. Imagine que em sua loja de trecos importados você tem um balcão de ofertas com trecos de $4 até $9. Se quisesse fazer uma tabela de preços em reais você poderia digitar::
 
-    >>> print(4*d, 5*d, 6*d, 7*d, 9*d)
+    >>> print(4 * dollar, 5 * dollar, 6 * dollar, 7 * dollar, 9 * dollar)
     6.44 8.05 9.66 11.27 14.49
     >>>
 
@@ -161,7 +161,7 @@ Aqui nós criamos uma lista de preços na memória do computador e associamos o 
 
 ::
 
-    >>> for p in lista: print(p * d)
+    >>> for preço in lista: print(preço * dollar)
 
     8.05
     9.66
@@ -174,8 +174,8 @@ Aqui nós criamos uma lista de preços na memória do computador e associamos o 
 Aqui instruímos o interpretador a fazer os seguintes passos:
 
 - para cada item sucessivo da ``lista``:
-    - associe o nome ``p`` ao item da vez
-    - exiba o valor de ``p * d``
+    - associe o nome ``preço`` ao item da vez
+    - exiba o valor de ``preço * dollar``
 
 Agora digamos que você tem trecos com valores de 4 a 15 dólares. Você poderia digitar a lista de novo, mas a coisa começa a ficar repetitiva novamente. Há uma forma melhor. A linguagem Python possui uma palavra chamada ``range`` que serve para gerar faixas de números. Vamos usar essa palavra. Digite::
 
@@ -201,19 +201,19 @@ Quando apenas um dado N é fornecido, ``range`` produz um gerador para N número
 
 Agora digamos que eu queira uma sequência a partir de 2, e não zero. Digite::
 
-    >>> range(2,5)
+    >>> list(range(2,5))
     [2, 3, 4]
     >>>
 
 Agora para obter a lista de valores de trecos podemos digitar::
 
-    >>> range(4,16)
+    >>> list(range(4,16))
     [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     >>>
 
 E usando o comando ``for``, calcular de uma só vez todos os valores convertidos::
 
-    >>> for p in range(4,16): print(p * d)
+    >>> for preço in range(4,16): print(preço * dollar)
     ...
     6.44
     8.05
@@ -232,7 +232,7 @@ E usando o comando ``for``, calcular de uma só vez todos os valores convertidos
 
 Mas o ideal mesmo era ter os valores em dólares e reais lado a lado. Isso é fácil::
 
-    >>> for p in range(4,16): print(p, p * d)
+    >>> for preço in range(4,16): print(preço, preço * dollar)
     ...
     4 6.44
     5 8.05
@@ -250,8 +250,15 @@ Mas o ideal mesmo era ter os valores em dólares e reais lado a lado. Isso é f�
 
 Resumindo o que foi feito até aqui, com apenas duas linhas de código em Python, você pode gerar tabelas de conversão de qualquer tamanho. Experimente::
 
-    >>> d = 1.686
-    >>> for p in range(50,150): print(p, p * d)
+    >>> dollar = 1.686
+    >>> for preço in range(50,150): print(preço, preço * dollar)
 
 
 Parabéns, você acaba de construir seu primeiro programa!
+
+Desafios
+==========
+
+1. Crie um comando para mostrar na tela todos os números de 1 a 50.
+2. Se o quilo da carne custa R$ 12.5, mostre na tela uma tabela com os valores de 1 a 20kg.
+3. Refaça a tabela para caso eu tivesse que pagar uma taxa de R$ 2.50 pela embalagem cada vez que comprasse carne.

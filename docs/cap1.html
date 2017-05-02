@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Capítulo 1: Abrindo e fechando o console &#8212; documentação Aprenda a Programar out</title>
+    <title>Capítulo 1: Abrindo e fechando o console &#8212; documentação Aprenda a Programar 04</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     'out',
+        VERSION:     '04',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -51,7 +51,6 @@
 <li>executar o interpretador em modo texto (clicando em &#8220;Python (command line)&#8221; no Windows, ou simplesmente <code class="docutils literal"><span class="pre">python3</span></code> no Linux ou no MacOS X)</li>
 <li>usar o IDLE, que é um ambiente baseado em janelas.</li>
 </ol>
-<p>..todo:: Jupyter é a terceira maneira; talvez Jupyter na nuvem.</p>
 <p>Se você usa Windows, escolha o IDLE para começar a acompanhar esse tutorial. O IDLE também está disponível para a plataforma Linux (algumas distribuições colocam o IDLE em um pacote separado do pacote do Python).</p>
 <p>Seja qual for o interpretador que você escolheu, ao executá-lo você verá uma mensagem com informações de <em>copyright</em> mais ou menos como essa:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Nov</span> <span class="mi">17</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">23</span><span class="p">)</span>
@@ -104,7 +103,7 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span> <span class="mi">9</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="mf">3.0</span>
 <span class="go">2.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span> <span class="mi">9</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="mf">3.0</span>
-<span class="go">3.33333333333</span>
+<span class="go">3.3333333333333335</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
@@ -132,7 +131,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.5</span><span class="o">/</span><span class="mi">0</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">float division</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">float division by zero</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
@@ -150,29 +149,29 @@ Agora vamos provocar um outro tipo de erro:</p>
 </pre></div>
 </div>
 <p>Mas há uma forma melhor: em vez de digitar o valor 1.686 o tempo todo, você pode armazenar esse valor na memória do computador, assim:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.686</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.686</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>Note que o interpretador não respondeu nada (a menos que você tenha cometido um erro), mas ele guardou o número em uma posição de sua memória, e associou o símbolo <code class="docutils literal"><span class="pre">d</span></code> a essa posição. Agora, fica mais confortável converter dólares em reais:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">9.85</span> <span class="o">*</span> <span class="n">d</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">9.85</span> <span class="o">*</span> <span class="n">dollar</span>
 <span class="go">16.607099999999999</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mf">11.95</span> <span class="o">*</span> <span class="n">d</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">11.95</span> <span class="o">*</span> <span class="n">dollar</span>
 <span class="go">20.147699999999997</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">dollar</span>
 <span class="go">(8.4299999999999997, 11.802, 15.173999999999999)</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>No último caso, convertemos de uma vez só os valores 5, 7 e 9 em dólares. Para um resultado mais apresentável, use a função <code class="docutils literal"><span class="pre">print</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 <span class="go">8.43 11.802 15.174</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>E se a cotação do dólar mudou para 1.61? Basta armazenar o novo número e refazer os cálculos:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.61</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">d</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.61</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 <span class="go">8.05 11.27 14.49</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
@@ -182,7 +181,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 <div class="section" id="tabela-de-precos-em-dolares-e-reais">
 <h2>Tabela de preços em dólares e reais<a class="headerlink" href="#tabela-de-precos-em-dolares-e-reais" title="Link permanente para este título">¶</a></h2>
 <p>Agora vamos mostrar como o interpretador Python é muito mais poderoso que uma calculadora. Imagine que em sua loja de trecos importados você tem um balcão de ofertas com trecos de $4 até $9. Se quisesse fazer uma tabela de preços em reais você poderia digitar:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">5</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">7</span><span class="o">*</span><span class="n">d</span><span class="p">,</span> <span class="mi">9</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">,</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 <span class="go">6.44 8.05 9.66 11.27 14.49</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
@@ -193,7 +192,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </pre></div>
 </div>
 <p>Aqui nós criamos uma lista de preços na memória do computador e associamos o nome &#8220;lista&#8221; a esses dados. Em seguida, digite o seguinte (você terá que teclar <code class="docutils literal"><span class="pre">[ENTER]</span></code> duas vezes ao final dessa linha; depois saberá porque).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 
 <span class="go">8.05</span>
 <span class="go">9.66</span>
@@ -208,8 +207,8 @@ Agora vamos provocar um outro tipo de erro:</p>
 <li><dl class="first docutils">
 <dt>para cada item sucessivo da <code class="docutils literal"><span class="pre">lista</span></code>:</dt>
 <dd><ul class="first last">
-<li>associe o nome <code class="docutils literal"><span class="pre">p</span></code> ao item da vez</li>
-<li>exiba o valor de <code class="docutils literal"><span class="pre">p</span> <span class="pre">*</span> <span class="pre">d</span></code></li>
+<li>associe o nome <code class="docutils literal"><span class="pre">preço</span></code> ao item da vez</li>
+<li>exiba o valor de <code class="docutils literal"><span class="pre">preço</span> <span class="pre">*</span> <span class="pre">dollar</span></code></li>
 </ul>
 </dd>
 </dl>
@@ -236,19 +235,19 @@ Agora vamos provocar um outro tipo de erro:</p>
 </div>
 <p>É um comportamento um pouco estranho, mas útil em programação (o primeiro item de uma série, em Python e na maioria das linguagens, é o item número zero; isso será discutido mais profundamente quando aprendermos mais sobre listas).</p>
 <p>Agora digamos que eu queira uma sequência a partir de 2, e não zero. Digite:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="go">[2, 3, 4]</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>Agora para obter a lista de valores de trecos podemos digitar:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
 <span class="go">[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>E usando o comando <code class="docutils literal"><span class="pre">for</span></code>, calcular de uma só vez todos os valores convertidos:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">6.44</span>
 <span class="go">8.05</span>
@@ -266,7 +265,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 </pre></div>
 </div>
 <p>Mas o ideal mesmo era ter os valores em dólares e reais lado a lado. Isso é fácil:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">preço</span><span class="p">,</span> <span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">4 6.44</span>
 <span class="go">5 8.05</span>
@@ -284,11 +283,19 @@ Agora vamos provocar um outro tipo de erro:</p>
 </pre></div>
 </div>
 <p>Resumindo o que foi feito até aqui, com apenas duas linhas de código em Python, você pode gerar tabelas de conversão de qualquer tamanho. Experimente:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="mf">1.686</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dollar</span> <span class="o">=</span> <span class="mf">1.686</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">preço</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">150</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">preço</span><span class="p">,</span> <span class="n">preço</span> <span class="o">*</span> <span class="n">dollar</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Parabéns, você acaba de construir seu primeiro programa!</p>
+</div>
+<div class="section" id="desafios">
+<h2>Desafios<a class="headerlink" href="#desafios" title="Link permanente para este título">¶</a></h2>
+<ol class="arabic simple">
+<li>Crie um comando para mostrar na tela todos os números de 1 a 50.</li>
+<li>Se o quilo da carne custa R$ 12.5, mostre na tela uma tabela com os valores de 1 a 20kg.</li>
+<li>Refaça a tabela para caso eu tivesse que pagar uma taxa de R$ 2.50 pela embalagem cada vez que comprasse carne.</li>
+</ol>
 </div>
 </div>
 
@@ -304,6 +311,7 @@ Agora vamos provocar um outro tipo de erro:</p>
 <li><a class="reference internal" href="#uma-calculadora-melhor">Uma calculadora melhor</a></li>
 <li><a class="reference internal" href="#conversor-de-dolares">Conversor de dólares</a></li>
 <li><a class="reference internal" href="#tabela-de-precos-em-dolares-e-reais">Tabela de preços em dólares e reais</a></li>
+<li><a class="reference internal" href="#desafios">Desafios</a></li>
 </ul>
 </li>
 </ul>
@@ -338,7 +346,7 @@ Agora vamos provocar um outro tipo de erro:</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Luciano Ramalho.
+      &copy;2017, Luciano Ramalho.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
