@@ -261,4 +261,4 @@ Desafios
 
 1. Crie um comando para mostrar na tela todos os números de 1 a 50.
 2. Se o quilo da carne custa R$ 12.5, mostre na tela uma tabela com os valores de 1 a 20kg.
-3. Refaça a tabela para caso eu tivesse que pagar uma taxa de R$ 2.50 pela embalagem cada vez que comprasse carne.
+3. Refaça a tabela para caso tivesse que pagar uma taxa de R$ 2.50 pela embalagem cada vez que comprasse carne.

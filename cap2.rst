@@ -265,3 +265,10 @@ Antes de encerrar este capítulo, vale a pena contar que, assim como o ``+`` e o
 Explicando: ``6 / 3`` dá 2, e o resto é 0; a divisão inteira de ``7 / 3`` também dá 2, mas o resto é 1. Esta operação é chamada de "modulo" em inglês. Sua principal utilidade é determinar se um número é múltiplo de outro. Nos exemplos acima, o resultado de ``6 % 3`` e ``9 % 3`` é zero, porque 6 e 9 são múltiplos de 3.
 
 No próximo capítulo vamos começar a elaborar programas mais extensos. O modo interativo, que temos usado até agora, vai continuar sendo útil para testarmos novas idéias e observar o comportamento de funções e módulos do Python rapidamente. Mas, a partir da próxima sessão, vamos começar a gravar nossos programas para uso posterior, em vez de digitá-los diretamente no interpretador. E vamos também descobrir como solicitar informações do usuário, de forma que os programas possam ser utilizados por pessoas que não sabem programar e preferem ficar longe de um interpretador interativo.
+
+Desafios
+==========
+
+1. Crie variáves para ``a``, ``b``, ``c`` com os valores ``2``, ``banana`` e ``3.5`` e realize as operações de ``+`` e ``*`` com todos as combinações possíveis. Ex.: ``a + a``, ``a + b``, ``a + c``, ``b + a``...
+2. Se o quilo da carne custa R$ 12.5, mostre na tela uma tabela com os valores de 1 a 20kg aplicando as formatações usadas neste capítulo.
+3. Refaça a tabela para caso tivesse que pagar uma taxa de R$ 2.50 pela embalagem cada vez que comprasse carne. Mostre o valor original e com a adição da taxa formatados.
