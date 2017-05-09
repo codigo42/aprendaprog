@@ -15,7 +15,7 @@ Um programa modularizado facilita o planejamento, a distribuição de tarefas en
 ::
 
   while True:
-      resp = raw_input('Quanto gastou %s? ' % pessoa)
+      resp = input('Quanto gastou %s? ' % pessoa)
       try:
           gasto = float(resp)
           break

@@ -18,7 +18,7 @@ A versão Windows do Python traz o IDLE, um interpretador interativo em modo gr�
       print('Fulano ', end='')
   print('e seus Sicranos')
 
-Note que o editor pinta algumas palavras de laranja. São as chamadas palavras-chave, peças tão importantes em Python como os verbos em português. Outras cores indicaom funções e variáveis. E os textos entre aspas aparecem em verde: dessa forma, fica difícil esquecer de fechar aspas. Outra coisa que acontece magicamente é a endentação. O editor "sabe" que após os ":" do comando for, deve vir um bloco endentado. Para encerrar o bloco endentado, você pode teclar ``[ENTER]`` duas vezes para pular uma linha, como ocorre também na deixa do interpretador, ou então teclar ``[BackSpace]`` para apagar de uma vez só os quatro espaços à esquerda da linha.
+Note que o editor pinta algumas palavras de laranja. São as chamadas palavras-chave, peças tão importantes em Python como os verbos em português. Outras cores indicam funções e variáveis. E os textos entre aspas aparecem em verde: dessa forma, fica difícil esquecer de fechar aspas. Outra coisa que acontece magicamente é a endentação. O editor "sabe" que após os ":" do comando for, deve vir um bloco endentado. Para encerrar o bloco endentado, você pode teclar ``[ENTER]`` duas vezes para pular uma linha, como ocorre também na deixa do interpretador, ou então teclar ``[BackSpace]`` para apagar de uma vez só os quatro espaços à esquerda da linha.
 
 Uma vez digitado esse programinha você pode executá-lo de duas maneiras: diretamente de dentro do IDLE ou no console do sistema operacional. Para fazer o IDLE rodar o seu programa é só teclar ``[F5]``. Se você ainda não salvou o código do seu programa, o IDLE vai exibir uma mensagem pedindo para que você o faça. Basta usar o comando File > Save, ou melhor ainda, ``[CTRL]+[S]``. Se você não sabe onde salvar, sugiro que crie uma pasta chamada Curso dentro da pasta onde está o seu interpretador Python e salve ali (provavelmente a pasta ficará sendo ``C:\Python25\Curso``, no caso do Python 2.5). Assim fica fácil encontrá-lo depois. Use o nome ``egotrip.py``.
 
@@ -99,7 +99,7 @@ Ou, se isso não funcionar, tente algo como segue (o comando exato vai depender 
 .. code-block:: bash
 
   $ /usr/local/bin/python egotrip.py
-  $ /usr/bin/python egtrip.py
+  $ /usr/bin/python egotrip.py
 
 Bom, deu trabalho mas chegamos. E como você deve ter notado, a execução do programinha foi bem mais veloz que no IDLE (em meu computador, menos de 1 segundo, em vez de 10).
 
@@ -128,7 +128,7 @@ Seu primeiro programa interativo
 
 Até agora, todos os programas que mostramos não são interativos, ou seja, uma vez rodando, eles não aceitam a entrada de dados de um usuário ou do sistema. Programas não interativos são usados em muitas situações comuns. O programa que emite os cheques da folha de pagamentos de uma grande empresa provavelmente não é interativo, mas recebe todos os dados necessários em um único lote, antes de sua execução. Mas os programas mais interessantes, como um processador de textos, um ''game'' ou o piloto automático de um avião são todos interativos. Esse é o tipo de programa que passaremos a desenvolver agora.
 
-Nosso passeio pela ASCII art não teve apenas objetivos estéticos. Quisemos mostrar como rodar um programa em Python a partir da linha de comando porque, a partir de agora, vamos usar um comando da linguagem Python que não funciona na atual versão do IDLE. O comando chama-se ``raw_input``, e sua função é receber uma entrada de dados do usuário (input quer dizer entrada de dados; cuidado porque você deve ter sido condicionado a acreditar que "antes de P e B sempre vem a letra M", mas input é inglês, e se escreve com N mesmo; eu perdi uma hora com isso quando aprendia BASIC).
+Nosso passeio pela ASCII art não teve apenas objetivos estéticos. Quisemos mostrar como rodar um programa em Python a partir da linha de comando porque, a partir de agora, vamos usar um comando da linguagem Python que não funciona na atual versão do IDLE. O comando chama-se ``input``, e sua função é receber uma entrada de dados do usuário (input quer dizer entrada de dados; cuidado porque você deve ter sido condicionado a acreditar que "antes de P e B sempre vem a letra M", mas input é inglês, e se escreve com N mesmo; eu perdi uma hora com isso quando aprendia BASIC).
 
 Vejamos um primeiro exemplo. Observe que não estamos acentuando o texto no programa porque o DOS não reproduz corretamente os acentos do Windows, e precisamos do DOS para testar esse programa. Deve haver uma forma de convencer o DOS a exibir os acentos corretos do Windows, mas ainda não descobrimos como.
 
@@ -136,9 +136,10 @@ De qualquer forma, isso não quer dizer que não dá para fazer programas com ac
 
 Digite o programinha abaixo, salve como ``despdom1.py`` e execute na linha de comando.
 
-.. todo:: Mostrar como usar encoding para fazer mensagens acentuadas
+.. :: TODO: Mostrar como usar encoding para fazer mensagens acentuadas
 
 .. literalinclude:: codigo/despdom1.py
+   :linenos:
 
 Os números que aparecem à esquerda na listagem acima não fazem parte do programa e não devem ser digitados. Eles estão aí para facilitar a explicação que vem logo a seguir.
 
@@ -168,13 +169,13 @@ Linha 3
   O velho comando ``print`` é usado para escrever o título "Balanco de despesas domesticas" na tela do usuário.
 
 Linha 4
-   O comando ``raw_input`` exibe a pergunta "Quanto gastou Ana?", aguarda uma resposta e armazena na varíavel ana.
+   O comando ``input`` exibe a pergunta "Quanto gastou Ana?", aguarda uma resposta e armazena na varíavel ana.
 
 Linha 5
    O mesmo comando é usado para guardar os gastos de Bia na variável bia.
 
 Linha 6
-  Aqui é calculado o total. Note o uso da função ''float''. Acontece que a função ``raw_input`` não retorna números, e sim ''strings''. Como vimos no capítulo anterior, o operador "+" tem efeitos diferentes quando aplicado a ''strings''; em vez de somar, ele concatena ou junta os textos. Nesse caso, se ``ana`` é ``'10'`` e ``bia`` é ``'20'``, ``ana + bia`` seria ``'1020'``. Para realizar a soma, precisamos antes transformar as ''strings'' em números, o que é feito pelas funções ``float`` ou ``int``. Nesse caso, usamos ``float`` porque não vamos nos limitar a aceitar números inteiros.
+  Aqui é calculado o total. Note o uso da função ``float``. Acontece que a função ``input`` não retorna números, e sim ''strings''. Como vimos no capítulo anterior, o operador "+" tem efeitos diferentes quando aplicado a ''strings''; em vez de somar, ele concatena ou junta os textos. Nesse caso, se ``ana`` é ``'10'`` e ``bia`` é ``'20'``, ``ana + bia`` seria ``'1020'``. Para realizar a soma, precisamos antes transformar as ''strings'' em números, o que é feito pelas funções ``float`` ou ``int``. Nesse caso, usamos ``float`` porque não vamos nos limitar a aceitar números inteiros.
 
 Linha 7
   O total é exibido, com o auxílio do operador % que insere o valor na posição assinalada pelos caracteres %s dentro da mensagem. O código %s faz com que Python transforme o número em ''string''.
@@ -205,6 +206,7 @@ O programa acima é quase útil. Ele calcula a despesa total e a média, mas nã
 Utilize o comando ``File > Save As...`` para salvar o programa ``despdom1.py`` como ``despdom2.py``. Agora vamos modificá-lo para fazer o que queremos. Abaixo, o programa final, e a seguir, a explicação de cada mudança que foi feita.
 
 .. literalinclude:: codigo/despdom2.py
+   :linenos:
 
 O que mudou:
 
@@ -212,7 +214,7 @@ Linha 1
   Acrescentamos "versao 2" ao comentário
 
 Linhas 4 e 5
-  Aqui fazemos a conversão dos resultados de raw_input para float imediatamente, de modo que os valores armazenados na variáveis ana e bia são números, e não ''strings'' como antes.
+  Aqui fazemos a conversão dos resultados de input para float imediatamente, de modo que os valores armazenados na variáveis ana e bia são números, e não ''strings'' como antes.
 
 Linha 6
   Uma mudança cosmética apenas: acrescentamos uma linha com apenas um print, para deixar na tela uma linha em branco entre as perguntas e os resultados.
@@ -271,9 +273,9 @@ Para sentir o funcionamento desses operadores, abra o interpretador interativo d
   >>> a < b
   >>> a >= b
 
-As linhas 1 e 2 não produzem nenhum resultado, como já vimos antes. Elas apenas atribuem valor às variáveis a e b. A linha 3 parece um pouco com a linha 1, mas significa algo completamente diferente. Aqui não acontece nenhuma atribuição, apenas uma comparação, que vai gerar um resultado. Um erro bastante comum cometido por quem está aprendendo Python, C ou Java é usar = no lugar de == ao fazer uma comparação (em Basic, por exemplo, o = é usado nos dois casos). Após cada as linhas a partir da linha 3, o interpretador mostrará um número 1 ou 0, para indicar que a comparação é verdadeira (1) ou falsa (0).
+As linhas 1 e 2 não produzem nenhum resultado, como já vimos antes. Elas apenas atribuem valor às variáveis a e b. A linha 3 parece um pouco com a linha 1, mas significa algo completamente diferente. Aqui não acontece nenhuma atribuição, apenas uma comparação, que vai gerar um resultado. Um erro bastante comum cometido por quem está aprendendo Python, C ou Java é usar = no lugar de == ao fazer uma comparação (em Basic, por exemplo, o = é usado nos dois casos). Após cada as linhas a partir da linha 3, o interpretador mostrará True ou False, para indicar que a comparação é verdadeira (True) ou falsa (False).
 
-Voltando ao comando ``if``, não existe nenhuma lei que obrigue a presença de um operador de comparação na condição do ``if``. A única coisa que interessa é que a expressão que estiver no lugar da condição será considerada falsa se for igual a 0 (zero), uma ''string'' vazia, uma lista vazia ou o valor especial ``None``, sobre o qual voltaremos a falar depois. Qualquer valor que não seja um desses será considerado "verdadeiro", e provocará a execução do bloco subordinado ao ``if``. É por isso que os operadores de comparação retornam 0 ou 1 para representar falso ou verdadeiro.
+Voltando ao comando ``if``, não existe nenhuma lei que obrigue a presença de um operador de comparação na condição do ``if``. A única coisa que interessa é que a expressão que estiver no lugar da condição será considerada falsa se for igual a 0 (zero), uma ''string'' vazia, uma lista vazia, o ``False`` ou o valor especial ``None``, sobre o qual voltaremos a falar depois. Qualquer valor que não seja um desses será considerado "verdadeiro", e provocará a execução do bloco subordinado ao ``if``.
 
 Não é obrigatória a presença de um bloco ``else`` após um ``if``. Mas um ``else`` só pode existir após um ``if``. E um ``if`` pode conter, no máximo, um ``else``. Existe um terceiro comando de bloco relacionado a esses, chamado ``elif``. Ele corresponde à combinação ``else-if`` existente em outras linguagens. Assim como o ``if``, cada ``elif`` deve ser acompanhado de uma condição que determinará a execução do bloco subordinado. Como todo comando de bloco, a primeira linha do ``elif`` deve ser terminada por um sinal de ``:``.
 
@@ -290,4 +292,9 @@ Um ``if`` pode ser seguido de qualquer quantidade de blocos ``elif``, e se houve
   else:
       print('Modulo lunar destruido no impacto.')
 
-Numa sequência de ``if/elif/elif/.../else`` é garantido que um, e apenas um dos blocos será executado. Fica como desafio para o leitor descobrir como usar o comando elif para corrigir o bug dos gastos iguais, que aparece no programa ``despdom2.py``.
+Numa sequência de ``if/elif/elif/.../else`` é garantido que um, e apenas um dos blocos será executado.
+
+Desafios
+==========
+
+Reescreva o programa ``despdom2.py`` para que quando Ana e Bia gastatem valores iguais seja apresentada a mensagem "Ana e Bia estão quites".

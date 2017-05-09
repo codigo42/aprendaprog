@@ -8,7 +8,7 @@ A melhor forma de aprender a programar é usando o console de um interpretador e
 
 2. usar o IDLE, que é um ambiente baseado em janelas.
 
-.. :: Jupyter é a terceira maneira; talvez Jupyter na nuvem.
+.. :: TODO: Jupyter é a terceira maneira; talvez Jupyter na nuvem.
 
 Se você usa Windows, escolha o IDLE para começar a acompanhar esse tutorial. O IDLE também está disponível para a plataforma Linux (algumas distribuições colocam o IDLE em um pacote separado do pacote do Python).
 
